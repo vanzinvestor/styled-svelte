@@ -4,8 +4,7 @@ import { parseSpacing } from './pareSpacing';
 export const parseCss = (props: any, style: CSSInterpolation) => {
   return cx(
     props.className,
-    css(style),
-    css({
+    css(style, {
       margin: parseSpacing(props.m),
       marginTop: parseSpacing([props.mt, props.my], true),
       marginRight: parseSpacing([props.mr, props.mx], true),
