@@ -8,8 +8,8 @@ Svelte styled components. The [styled-svelte](https://www.npmjs.com/package/styl
 - [API](#api)
   - [Create Component with html tag — `styled`](#styled)
   - [Create Component with Component — `styled`](#styled-with-component-tag)
-  - [Styled with props — `styled`](#styles-with-props)
-  - [Styles with props and Combining class names — `styled` `cx`](#styles-with-props-and-combining-class-names-cx)
+  - [Styled with props — `styled` `props`](#styles-with-props)
+  - [Styles with props and Combining class names — `styled` `props` `cx`](#styles-with-props-and-combining-class-names-cx)
   - [Styled in Component — `Component`](#styles-in-component)
   - [Theme — `ThemeProvider`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
@@ -28,7 +28,7 @@ import styled from 'styled-svelte';
 
 const Div = styled('div', { padding: '10px 20px' });
 
-const Button = styled('button', (props) => ({
+const Button = styled('button', {
   color: '#333',
   border: 'none',
   outline: 'none',
@@ -38,7 +38,7 @@ const Button = styled('button', (props) => ({
   '&:hover': {
     backgroundColor: '#d8d8d8',
   },
-}));
+});
 ```
 
 Use them like any other Svelte component – except they're styled!
@@ -158,7 +158,7 @@ Output in HTML
 <button color="#333" class="btn css-sxvnf">Click</button>
 ```
 
-Remark: `btn` class from other css libary (if you want to overide)
+Remark: `btn` class from other css library (if you want to overide)
 
 ### Styles in Component
 
@@ -170,11 +170,11 @@ Remark: `btn` class from other css libary (if you want to overide)
 
 #### Padding Props
 
-`p` props `p={2}` eq. `padding:'16px';`
+`p` props `p={2}` eq. `padding: 16px;`
 
-`p={[2]}` eq. `padding:'16px';`
+`p={[2]}` eq. `padding: 16px;`
 
-`p={[2,4]}` eq. `padding:'16px 32px';`
+`p={[2,4]}` eq. `padding: 16px 32px;`
 
 `p={[2,4,1]}` eq. `padding: 16px 32px 8px;`
 
@@ -194,11 +194,11 @@ Remark: `btn` class from other css libary (if you want to overide)
 
 #### Margin Props
 
-`m` props `m={2}` eq. `margin:'16px';`
+`m` props `m={2}` eq. `margin: 16px;`
 
-`m={[2]}` eq. `margin:'16px';`
+`m={[2]}` eq. `margin: 16px;`
 
-`m={[2,4]}` eq. `margin:'16px 32px';`
+`m={[2,4]}` eq. `margin: 16px 32px;`
 
 `m={[2,4,1]}` eq. `margin: 16px 32px 8px;`
 
@@ -222,7 +222,7 @@ Remark: `btn` class from other css libary (if you want to overide)
 
 #### Sx Props js-in-css _(Styles Object)_
 
-`sx` props `sx={{padding:'16px',color:'#333'}}` eq. `padding: 16px; color: #333;`
+`sx` props `sx={{padding:'16px',color:'#333'}}` eq. `padding: '16px'; color: #333;`
 
 #### Example componenent props
 
@@ -327,7 +327,7 @@ injectGlobal(
 );
 ```
 
-Reamark: methode `css` `injectGlobal` export direct from [@emotion/css](https://www.npmjs.com/package/@emotion/css)
+Remark: methode `css` `cx` `injectGlobal` export direct from [@emotion/css](https://www.npmjs.com/package/@emotion/css)
 
 ### Thanks lib to inspire
 
