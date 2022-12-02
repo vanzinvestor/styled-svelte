@@ -1,0 +1,42 @@
+{
+  "name": "styled-svelte",
+  "version": "1.0.0",
+  "description": "Svelte styled components package",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "trans": "svelte-transpile-typescript -i src/components -o lib/components",
+    "dev": "onchange \"src/\" -- npm run build",
+    "build": "tsc && npm run trans",
+    "prepublishOnly": "tsc && npm run trans"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vanzinvestor/styled-svelte"
+  },
+  "keywords": [
+    "styles",
+    "svelte",
+    "styled-components",
+    "css",
+    "css-in-js"
+  ],
+  "homepage": "https://github.com/vanzinvestor/styled-svelte",
+  "author": "Vanz Investor <vanzinvestor@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/css": "^11.10.5",
+    "svelte": "^3.53.1"
+  },
+  "devDependencies": {
+    "@tsconfig/svelte": "^3.0.0",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "onchange": "^7.1.0",
+    "svelte-transpile-typescript": "^0.1.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4"
+  }
+}
