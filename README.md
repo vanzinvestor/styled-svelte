@@ -14,6 +14,7 @@ Styled svelte components. The [styled-svelte](https://www.npmjs.com/package/styl
   - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
   - [Theme — `ThemeProvider` `props.theme`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
+  - [Color Options — `alpha` `darker` `lighten` and more](#color-options)
 - [Thanks](#thanks-to-inspire-me)
 
 ## Quick Start
@@ -221,9 +222,15 @@ Remark: `btn` class from other css library (if you want to overide)
 
 `className` props `className="btn"`
 
-#### Sx Props js-in-css _(Styles Object)_
+#### Sx Props js-in-css
 
-`sx` props `sx={{padding:'16px',color:'#333'}}` eq. `padding: '16px'; color: #333;`
+\*_(Styles Object OR Styles Object with Props)_
+
+`sx` props `sx={{color:'#333',padding:'16px'}}` eq. `color: #333; padding: '16px';`
+
+`sx` props `sx={(props)=>({color:props.theme[props.theme.mode].colors.primary,padding:'16px'})}` eq. `color: #1976d2; padding: '16px';`
+
+Remark: `props.theme` work with [ThemeProvider](#theme) only
 
 #### Example Styles in StyledComponenent
 
@@ -250,6 +257,10 @@ const Button = styled('button', {
 <!-- You can do this: Styles in StyledComponent -->
 <Button p={[2,4]} m={0.5} sx={{color:'#fff',backgroundColor:'#333',
 '&:hover':{backgroundColor:'#555'}}}>Click Me</Button>
+
+<!-- OR With Props -->
+<Button p={[2,4]} m={0.5} sx={(props)=>({color:props.theme[props.theme.mode].colors.primary,backgroundColor:'#333',
+'&:hover':{backgroundColor:'#555'}})}>Click Me</Button>
 ```
 
 ### Forwarding Refs Events
@@ -287,56 +298,57 @@ export default main;
 
 ```ts
 // src/theme/themePallete.ts
-import { Theme } from 'styled-svelte'
+import type { Theme } from 'styled-svelte';
 
-type ThemePallete={
-  light:{
-      colors: {
-        primary:string;
-        seconday:string;
-        error:string;
-        waraing:string;
-        info:string;
-        success:string;
-      }
-      backgroundColors: {
-        primary:string;
-        seconday:string;
-        light:string;
-        lighter:string;
-      }
-    }
-    mode:string;
-}
+export type ThemePallete = {
+  light: {
+    colors: {
+      primary: string;
+      seconday: string;
+      error: string;
+      waraing: string;
+      info: string;
+      success: string;
+    };
+    backgroundColors: {
+      primary: string;
+      seconday: string;
+      light: string;
+      lighter: string;
+    };
+  };
+  mode: string;
+};
 
-export const themePallete:Theme<ThemePallete>={
-  theme:{ // start with theme:{ // Anything If You Want }
+export const themePallete: Theme<ThemePallete> = {
+  theme: {
+    // start with theme:{ // Anything If You Want }
     light: {
       colors: {
-      primary:'#1976d2',
-      seconday:'#9c27b0',
-      error:'#df2f2f',
-      waraing:'#ed6c02',
-      info:'#0288d1',
-      success:'#2e7d36'
-      }
+        primary: '#1976d2',
+        seconday: '#9c27b0',
+        error: '#df2f2f',
+        waraing: '#ed6c02',
+        info: '#0288d1',
+        success: '#2e7d36',
+      },
       backgroundColors: {
         primary: '#fff',
         seconday: '#f8f8f8',
         light: '#e5e5e5',
-        lighter: '#e8e8e8'
-      }
-    }
-    mode:'light',
-  }
-}
+        lighter: '#e8e8e8',
+      },
+    },
+    mode: 'light',
+  },
+};
 ```
 
 #### Use in components by `props.theme`
 
 ```ts
 import styled from 'styled-svelte';
-import { ThemePallate } from './theme/themePallete';
+import type { ThemePallate } from './theme/themePallete';
 
 const Button = styled<ThemePallete>('button', (props) => ({
   color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
@@ -355,7 +367,7 @@ const Button = styled<ThemePallete>('button', (props) => ({
 
 `injectGlobal` injects styles into the global scope and is useful for applications such as css resets or font faces.
 
-```js
+```ts
 import { injectGlobal } from 'styled-svelte';
 
 injectGlobal(
@@ -368,6 +380,34 @@ injectGlobal(
 ```
 
 Remark: methode `css` `cx` `injectGlobal` export direct from [@emotion/css](https://www.npmjs.com/package/@emotion/css)
+
+### Color options
+
+```ts
+import {
+  alpha,
+  darker,
+  lighten,
+  lightness,
+  saturate,
+  grayscale,
+  whiten,
+  blacken,
+  fade,
+  opaquer,
+} from 'styled-svelte';
+
+alpha('#1976d2', 0.8); //rgba(25, 118, 210, 0.8)
+darker('#1976d2', 0.2); //#145EA8
+lighten('#1976d2', 0.2); //#338DE7
+lightness('#1976d2', 0.2); //##000101
+saturate('#1976d2', 0.5); //##0076FF
+grayscale('#1976d2'); //#646464
+whiten('#1976d2', 0.8); //#2D80D2
+blacken('#1976d2', 0.8); //#1964AE
+fade('#1976d2', 0.2); //rgba(25, 118, 210, 0.8)
+opaquer('#1976d2', 0.8); //rgb(25, 118, 210)
+```
 
 ### Thanks to inspire me
 

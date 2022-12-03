@@ -20,7 +20,7 @@ export const styled = <T = any>(
       constructor(args: any) {
         const { props, ...restOptions } = args;
 
-        let theme: Theme<T>;
+        let theme: any;
 
         const ctx = getContext<StyledThemeContext<Theme<T>>>(styledThemeKey);
 
@@ -30,11 +30,9 @@ export const styled = <T = any>(
             theme = t;
           });
 
-          onDestroy(unsubscribe);
-
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           props['theme'] = theme.theme;
+
+          onDestroy(unsubscribe);
         }
 
         super({
@@ -58,7 +56,7 @@ export const styled = <T = any>(
       constructor(args: any) {
         const { props, ...restOptions } = args;
 
-        let theme: Theme<T>;
+        let theme: any;
 
         const ctx = getContext<StyledThemeContext<Theme<T>>>(styledThemeKey);
 
@@ -68,11 +66,9 @@ export const styled = <T = any>(
             theme = t;
           });
 
-          onDestroy(unsubscribe);
-
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           props['theme'] = theme.theme;
+
+          onDestroy(unsubscribe);
         }
 
         super({

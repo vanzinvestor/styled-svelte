@@ -1,5 +1,6 @@
 import type { SvelteComponent } from 'svelte';
 import type { Writable } from 'svelte/store';
+import type { CSSInterpolation } from '@emotion/css';
 
 export type AnyProperties = {
   [prop: string]: any;
@@ -10,6 +11,32 @@ export type Theme<T = any> = AnyProperties & {
 };
 
 export type StyledThemeContext<T = any> = Writable<T>;
+
+/**
+ * @see https://github.com/sveltejs/language-tools/issues/486#issuecomment-868975982
+ */
+
+export type StyledComponent = new (...args: any[]) => SvelteComponent;
+
+export type CommonProps = {
+  className: string | undefined;
+  modifierClassName: string | undefined;
+  m: number | ArraySpacing<number> | undefined;
+  mt: number | undefined;
+  mr: number | undefined;
+  mb: number | undefined;
+  ml: number | undefined;
+  mx: number | undefined;
+  my: number | undefined;
+  p: number | ArraySpacing<number> | undefined;
+  pt: number | undefined;
+  pr: number | undefined;
+  pb: number | undefined;
+  pl: number | undefined;
+  px: number | undefined;
+  py: number | undefined;
+  sx: ((props: any) => CSSInterpolation) | CSSInterpolation | undefined;
+};
 
 type TupMinMax<
   T,
@@ -26,12 +53,6 @@ type TupMinMax<
   : TupMinMax<T, Min, Max, [...A, T?], false>;
 
 export type ArraySpacing<T> = TupMinMax<T, 1, 4>;
-
-/**
- * @see https://github.com/sveltejs/language-tools/issues/486#issuecomment-868975982
- */
-
-export type StyledComponent = new (...args: any[]) => SvelteComponent;
 
 /**
  * @see https://github.com/emotion-js/emotion/blob/main/packages/styled/src/tags.js

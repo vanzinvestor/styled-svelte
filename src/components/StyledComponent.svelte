@@ -264,9 +264,12 @@
    *   color:"#333";
    *   background-color:"#fff";
    * ```
-   * @defaultValue `{}`
+   * @defaultValue `undefined`
    */
-  export const sx: CSSInterpolation = {};
+  export const sx:
+    | ((props: any) => CSSInterpolation)
+    | CSSInterpolation
+    | undefined = undefined;
 
   export const theme: Theme = { theme: {} };
 

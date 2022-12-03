@@ -1,3 +1,4 @@
+export * from './color';
 export * from './css';
 export * from './types';
 export { styled as default } from './styled';

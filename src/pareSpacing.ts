@@ -1,5 +1,5 @@
 export function parseSpacing(
-  n: number | Array<number | undefined>,
+  n: number | Array<number | undefined> | undefined,
   defaultValue?: string | boolean,
   orMode?: boolean
 ) {
@@ -37,7 +37,7 @@ export function parseSpacing(
 }
 
 export function parseSpacingValue(
-  n: number | Array<number | undefined>,
+  n: number | Array<number | undefined> | undefined,
   defaultValue?: string
 ) {
   if (n instanceof Array) {
