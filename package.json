@@ -25,7 +25,10 @@
   "author": "Vanz Investor <vanzinvestor@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "-": "^0.0.1",
     "@emotion/css": "^11.10.5",
+    "D": "^1.0.0",
+    "eslint-plugin-svelte3": "^4.0.0",
     "svelte": "^3.53.1"
   },
   "devDependencies": {

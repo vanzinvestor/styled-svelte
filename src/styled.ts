@@ -17,7 +17,7 @@ export const styled = <T = any>(
 ): StyledComponent => {
   if (typeof Tag === 'string') {
     return class extends Element {
-      constructor(args: { target: any; props?: any }) {
+      constructor(args: any) {
         const { props, ...restOptions } = args;
 
         let theme: Theme<T>;
@@ -55,7 +55,7 @@ export const styled = <T = any>(
     };
   } else if (Tag instanceof Object) {
     return class extends Tag {
-      constructor(args: { target: any; props?: any }) {
+      constructor(args: any) {
         const { props, ...restOptions } = args;
 
         let theme: Theme<T>;
