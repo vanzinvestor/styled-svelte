@@ -1,6 +1,6 @@
 # styled-svelte
 
-Svelte styled components. The [styled-svelte](https://www.npmjs.com/package/styled-svelte) allow you to write actual CSS code to style your components. this package is framework agnostic and the simplest way to styled components. this package use [@emotion/css](https://www.npmjs.com/package/@emotion/css) to transplied js-in-css to css
+Styled svelte components. The [styled-svelte](https://www.npmjs.com/package/styled-svelte) allow you to write actual CSS code to style your components. this package is framework agnostic and the simplest way to styled svelte components.
 
 ## Table of Contents
 
@@ -10,10 +10,11 @@ Svelte styled components. The [styled-svelte](https://www.npmjs.com/package/styl
   - [Create Component with Component — `styled`](#styled-with-component-tag)
   - [Styled with props — `styled` `props`](#styles-with-props)
   - [Styles with props and Combining class names — `styled` `props` `cx`](#styles-with-props-and-combining-class-names-cx)
-  - [Styled in Component — `Component`](#styles-in-component)
-  - [Theme — `ThemeProvider`](#theme)
+  - [Styled in StyledComponent — `build in`](#styles-in-styledcomponenent)
+  - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
+  - [Theme — `ThemeProvider` `props.theme`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
-- [Thanks](#thanks-lib-to-inspire)
+- [Thanks](#thanks-to-inspire-me)
 
 ## Quick Start
 
@@ -53,7 +54,7 @@ Use them like any other Svelte component – except they're styled!
 
 ### styled
 
-The `styled` function accepts tag and styles as a object and returns a class component.
+The `styled` function accepts tag and styles as a object and returns a svelte component.
 
 #### Object Styles with html tag
 
@@ -160,11 +161,11 @@ Output in HTML
 
 Remark: `btn` class from other css library (if you want to overide)
 
-### Styles in Component
+### Styles in StyledComponenent
 
 \*_Overide `styled` API_
 
-\*_Common props for every component_
+\*_Build in props for every component_
 
 \*_Padding and Margin multiply by 8_
 
@@ -224,12 +225,36 @@ Remark: `btn` class from other css library (if you want to overide)
 
 `sx` props `sx={{padding:'16px',color:'#333'}}` eq. `padding: '16px'; color: #333;`
 
-#### Example componenent props
+#### Example Styles in StyledComponenent
 
-```html
+```svelte
+<script lang="ts">
+import styled from 'styled-svelte';
+
+const Button = styled('button', {
+  color: '#333',
+  border: 'none',
+  outline: 'none',
+  padding: '10px 20px',
+  cursor: 'pointer',
+  backgroundColor: '#e8e8e8',
+  '&:hover': {
+    backgroundColor: '#d8d8d8',
+  },
+});
+</script>
+
+<!-- Default use-->
+<Button>Click<Button>
+
+<!-- You can do this: Styles in StyledComponent -->
 <Button p={[2,4]} m={0.5} sx={{color:'#fff',backgroundColor:'#333',
-'&:hover':{backgroundColor:'#555'}}}>Click</Button>
+'&:hover':{backgroundColor:'#555'}}}>Click Me</Button>
 ```
+
+### Forwarding Refs Events
+
+Build in `forwordRefEvents` for every component created by `styled` api
 
 ### Theme
 
@@ -265,48 +290,63 @@ export default main;
 import { Theme } from 'styled-svelte'
 
 type ThemePallete={
-  colors:{
-      primary:string;
-      seconday:string;
-      error:string;
-      waraing:string;
-      info:string;
-      success:string;
+  light:{
+      colors: {
+        primary:string;
+        seconday:string;
+        error:string;
+        waraing:string;
+        info:string;
+        success:string;
+      }
+      backgroundColors: {
+        primary:string;
+        seconday:string;
+        light:string;
+        lighter:string;
+      }
     }
     mode:string;
 }
 
-// Anything If You Want
 export const themePallete:Theme<ThemePallete>={
-  theme:{
-    colors:{
+  theme:{ // start with theme:{ // Anything If You Want }
+    light: {
+      colors: {
       primary:'#1976d2',
       seconday:'#9c27b0',
       error:'#df2f2f',
       waraing:'#ed6c02',
       info:'#0288d1',
       success:'#2e7d36'
+      }
+      backgroundColors: {
+        primary: '#fff',
+        seconday: '#f8f8f8',
+        light: '#e5e5e5',
+        lighter: '#e8e8e8'
+      }
     }
     mode:'light',
   }
 }
 ```
 
-#### Use in components
+#### Use in components by `props.theme`
 
 ```ts
 import styled from 'styled-svelte';
 import { ThemePallate } from './theme/themePallete';
 
 const Button = styled<ThemePallete>('button', (props) => ({
-  color: props.theme.colors.primary, // props.theme work with ThemeProvider only
+  color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
   border: 'none',
   outline: 'none',
   padding: '10px 20px',
   cursor: 'pointer',
-  backgroundColor: '#e8e8e8',
+  backgroundColor: props.theme[props.theme.mode].backgroundColors.light,
   '&:hover': {
-    backgroundColor: '#d8d8d8',
+    backgroundColor: props.theme[props.theme.mode].backgroundColors.lighter,
   },
 }));
 ```
@@ -329,8 +369,8 @@ injectGlobal(
 
 Remark: methode `css` `cx` `injectGlobal` export direct from [@emotion/css](https://www.npmjs.com/package/@emotion/css)
 
-### Thanks lib to inspire
+### Thanks to inspire me
 
-[styled-components](https://www.npmjs.com/package/styled-components)
 [@emotion/styled](https://www.npmjs.com/package/@emotion/styled)
 [@emotion/css](https://www.npmjs.com/package/@emotion/css)
+[styled-components](https://www.npmjs.com/package/styled-components)
