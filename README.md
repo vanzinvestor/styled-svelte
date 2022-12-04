@@ -293,6 +293,12 @@ const Button = styled('button', {
 '&:hover':{backgroundColor:'#555'}})}>Click Me</Button>
 ```
 
+#### Other props
+
+\*_Other props you can use require `string`_
+
+`alignItems` `alignSelf` `background` `backgroundColor` `backgroundImage` `backgroundPosition` `backgroundRepeat` `border` `borderColor` `borderWidth` `borderStyle` `borderRadius` `bottom` `boxShadow` `boxSizing` `color` `columns` `columnGap` `columnSpan` `cursor` `direction` `display` `flexBasis` `flexDirection` `flexGrow` `flexShrink` `flexWrap` `float` `font` `fontFamily` `fontStyle` `fontWeight` `gap` `grid` `gridArea` `gridAutoColumns` `gridAutoFlow` `gridAutoRows` `gridGap` `gridRow` `gridTemplateAreas` `gridTemplateColumns` `gridTemplateRows` `height` `justifyContent` `justifyItems` `justifySelf` `left` `letterSpacing` `listStyle` `lineHeight` `maxHeight` `maxWidth` `minHeight` `minWidth` `objectFit` `objectPosition` `opacity` `outline` `overflow` `overflowX` `overflowY` `position` `pointerEvents` `right` `rotate` `rowGap` `scale` `scrollBehavior` `textAlign` `textDecoration` `textIndent` `textJustify` `textOverflow` `textShadow` `textTransform` `top` `transform` `transition` `translate` `verticalAlign` `visibility` `whiteSpace` `width` `wordBreak` `wordSpacing` `zIndex`
+
 ### Forwarding Refs Events
 
 Build in `forwordRefEvents` for every component created by `styled` api
