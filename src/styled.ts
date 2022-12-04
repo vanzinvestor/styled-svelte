@@ -1,4 +1,5 @@
-import { css, type CSSInterpolation } from '@emotion/css';
+import type { CSSInterpolation } from '@emotion/css';
+import { css } from './css';
 import { getContext, onDestroy } from 'svelte';
 import Element from './components/StyledComponent.svelte';
 import { parseCss } from './parseCss';
@@ -8,12 +9,13 @@ import type {
   HTMLTag,
   Theme,
   StyledThemeContext,
+  Modifier,
 } from './types';
 
 export const styled = <T = any>(
   Tag: HTMLTag | StyledComponent,
   style: ((props: Theme<T>) => CSSInterpolation) | CSSInterpolation,
-  modifier?: (props: Theme<T>, styleClass: string) => string
+  modifier?: ((props: Theme<T>, styleClass: string) => string) | Modifier
 ): StyledComponent => {
   if (typeof Tag === 'string') {
     return class extends Element {
@@ -40,13 +42,14 @@ export const styled = <T = any>(
           props: {
             ...props,
             htmlTag: Tag as HTMLTag,
-            class: modifier
-              ? typeof style === 'function'
-                ? modifier(props, parseCss(props, style(props)))
-                : modifier(props, parseCss(props, style))
-              : typeof style === 'function'
-              ? parseCss(props, style(props))
-              : parseCss(props, css(style)),
+            class:
+              typeof modifier === 'function'
+                ? typeof style === 'function'
+                  ? modifier(props, parseCss(props, style(props)))
+                  : modifier(props, parseCss(props, style))
+                : typeof style === 'function'
+                ? parseCss(props, style(props), modifier)
+                : parseCss(props, css(style), modifier),
           },
         });
       }
@@ -75,13 +78,14 @@ export const styled = <T = any>(
           ...restOptions,
           props: {
             ...props,
-            modifierClassName: modifier
-              ? typeof style === 'function'
-                ? modifier(props, parseCss(props, style(props)))
-                : modifier(props, parseCss(props, style))
-              : typeof style === 'function'
-              ? parseCss(props, style(props))
-              : parseCss(props, css(style)),
+            modifierClassName:
+              typeof modifier === 'function'
+                ? typeof style === 'function'
+                  ? modifier(props, parseCss(props, style(props)))
+                  : modifier(props, parseCss(props, style))
+                : typeof style === 'function'
+                ? parseCss(props, style(props), modifier)
+                : parseCss(props, css(style), modifier),
           },
         });
       }

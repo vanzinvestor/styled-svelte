@@ -9,12 +9,14 @@ Styled svelte components. The [styled-svelte](https://www.npmjs.com/package/styl
   - [Create Component with html tag — `styled`](#styled)
   - [Create Component with Component — `styled`](#styled-with-component-tag)
   - [Styled with props — `styled` `props`](#styles-with-props)
-  - [Styles with props and Combining class names — `styled` `props` `cx`](#styles-with-props-and-combining-class-names-cx)
+  - [Styles and Add subfix](#styles-and-add-subfix)
+  - [Styles and Combining class names — `cx`](#styles-and-combining-class-names-cx)
   - [Styled in StyledComponent — `build in`](#styles-in-styledcomponenent)
   - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
   - [Theme — `ThemeProvider` `props.theme`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
-  - [Color Options — `alpha` `darker` `lighten` and more](#color-options)
+  - [Color Utility — `alpha` `darker` `lighten` and more](#color-utility)
+  - [Other Api — `css` `cx` `cache` and more](#other-api)
 - [Thanks](#thanks-to-inspire-me)
 
 ## Quick Start
@@ -126,7 +128,41 @@ Use
 <Button color="#333">Click</Button>
 ```
 
-#### Styles with props and Combining class names `cx`
+Output in HTML
+
+```html
+<button color="#333" class="styled-1hfd8np">Click</button>
+```
+
+#### Styles and Add subfix
+
+```ts
+import styled, { cx } from 'styled-svelte';
+
+const Button = styled(
+  'button',
+  (props) => ({
+    color: props.color,
+    border: 'none',
+    outline: 'none',
+    padding: '10px 20px',
+    cursor: 'pointer',
+    backgroundColor: '#e8e8e8',
+    '&:hover': {
+      backgroundColor: '#d8d8d8',
+    },
+  }),
+  { subffix: 'mybtn' }
+);
+```
+
+Output in HTML
+
+```html
+<button color="#333" class="styled-1hfd8np-mybtn">Click</button>
+```
+
+#### Styles and Combining class names `cx`
 
 ```ts
 import styled, { cx } from 'styled-svelte';
@@ -148,16 +184,10 @@ const Button = styled(
 );
 ```
 
-Use
-
-```svelte
-<Button color="#333">Click</Button>
-```
-
 Output in HTML
 
 ```html
-<button color="#333" class="btn css-sxvnf">Click</button>
+<button color="#333" class="btn styled-1hfd8np">Click</button>
 ```
 
 Remark: `btn` class from other css library (if you want to overide)
@@ -379,9 +409,7 @@ injectGlobal(
 );
 ```
 
-Remark: methode `css` `cx` `injectGlobal` export direct from [@emotion/css](https://www.npmjs.com/package/@emotion/css)
-
-### Color options
+### Color Utility
 
 ```ts
 import {
@@ -407,6 +435,26 @@ whiten('#1976d2', 0.8); //#2D80D2
 blacken('#1976d2', 0.8); //#1964AE
 fade('#1976d2', 0.2); //rgba(25, 118, 210, 0.8)
 opaquer('#1976d2', 0.8); //rgb(25, 118, 210)
+```
+
+### Other Api
+
+such as `css` `cx` `injectGlobal` `flush` `hydrate` `merge` `getRegisteredStyles` `keyframes` `sheet` `cache` can read from [@emotion/css](https://www.npmjs.com/package/@emotion/css)
+
+```ts
+import {
+  flush,
+  hydrate,
+  cx,
+  merge,
+  getRegisteredStyles,
+  injectGlobal,
+  keyframes,
+  css,
+  sheet,
+  cache
+} =  from 'styled-svelte';
+
 ```
 
 ### Thanks to inspire me

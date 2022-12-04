@@ -254,6 +254,34 @@
    * Set Custom CSS in JS
    * @example
    * ```ts
+   * color="#333"
+   * ```
+   * Equivalent in CSS
+   * ```css
+   *   color:"#333";
+   * ```
+   * @defaultValue `undefined`
+   */
+  export const color: string | undefined = undefined;
+
+  /**
+   * Set Custom CSS in JS
+   * @example
+   * ```ts
+   * bg="#333"
+   * ```
+   * Equivalent in CSS
+   * ```css
+   *   background-color:"#fff";
+   * ```
+   * @defaultValue `undefined`
+   */
+  export const bg: string | undefined = undefined;
+
+  /**
+   * Set Custom CSS in JS
+   * @example
+   * ```ts
    * sx={{
    *   color:'#333',
    *   backgroundColor:'#fff'

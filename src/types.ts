@@ -12,6 +12,10 @@ export type Theme<T = any> = AnyProperties & {
 
 export type StyledThemeContext<T = any> = Writable<T>;
 
+export type Modifier = AnyProperties & {
+  subffix?: string;
+};
+
 /**
  * @see https://github.com/sveltejs/language-tools/issues/486#issuecomment-868975982
  */
