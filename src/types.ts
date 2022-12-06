@@ -5,17 +5,18 @@ import type { CSSInterpolation } from '@emotion/css';
 export type Styled = {
   <T = any>(
     Tag: HTMLTag | StyledComponent,
-    style: CSSInterpolation | ((props: Theme<T>) => CSSInterpolation),
-    modifier?:
-      | Modifier
-      | ((props: Theme<T>, styleClass: string) => string)
-      | undefined
+    style: Style<T>,
+    options?: Options
   ): StyledComponent;
   [htmlTag: string]: <T = any>(
-    style: ((props: Theme<T>) => CSSInterpolation) | CSSInterpolation,
-    modifier?: ((props: Theme<T>, styleClass: string) => string) | Modifier
+    style: Style<T>,
+    options?: Options
   ) => StyledComponent;
 };
+
+export type Style<T = any> =
+  | CSSInterpolation
+  | ((props: Theme<T>) => CSSInterpolation);
 
 export type AnyProperties = {
   [prop: string]: any;
@@ -27,8 +28,10 @@ export type Theme<T = any> = AnyProperties & {
 
 export type StyledThemeContext<T = any> = Writable<T>;
 
-export type Modifier = AnyProperties & {
+export type Options = {
+  modifier?: (props: any, styleClass: string) => string;
   subffix?: string;
+  styledSystem?: boolean;
 };
 
 /**

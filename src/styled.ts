@@ -1,4 +1,3 @@
-import type { CSSInterpolation } from '@emotion/css';
 import { css } from './css';
 import { getContext, onDestroy } from 'svelte';
 import StyledElement from './components/StyledComponent.svelte';
@@ -9,13 +8,14 @@ import type {
   HTMLTag,
   Theme,
   StyledThemeContext,
-  Modifier,
+  Options,
+  Style,
 } from './types';
 
 export function htmlTag(tag: HTMLTag) {
   return function <T = any>(
-    style: ((props: Theme<T>) => CSSInterpolation) | CSSInterpolation,
-    modifier?: ((props: Theme<T>, styleClass: string) => string) | Modifier
+    style: Style<T>,
+    options?: Options
   ): StyledComponent {
     return class extends StyledElement {
       constructor(args: any) {
@@ -42,13 +42,16 @@ export function htmlTag(tag: HTMLTag) {
             ...props,
             htmlTag: tag,
             class:
-              typeof modifier === 'function'
+              typeof options?.modifier === 'function'
                 ? typeof style === 'function'
-                  ? modifier(props, parseCss(props, style(props)))
-                  : modifier(props, parseCss(props, style))
+                  ? options?.modifier(
+                      props,
+                      parseCss(props, style(props), options)
+                    )
+                  : options?.modifier(props, parseCss(props, style, options))
                 : typeof style === 'function'
-                ? parseCss(props, style(props), modifier)
-                : parseCss(props, css(style), modifier),
+                ? parseCss(props, style(props), options)
+                : parseCss(props, css(style), options),
           },
         });
       }
@@ -56,10 +59,10 @@ export function htmlTag(tag: HTMLTag) {
   };
 }
 
-export function withComponent(Component: StyledComponent) {
+export function component(Component: StyledComponent) {
   return function <T = any>(
-    style: ((props: Theme<T>) => CSSInterpolation) | CSSInterpolation,
-    modifier?: ((props: Theme<T>, styleClass: string) => string) | Modifier
+    style: Style<T>,
+    options?: Options
   ): StyledComponent {
     return class extends Component {
       constructor(args: any) {
@@ -85,13 +88,16 @@ export function withComponent(Component: StyledComponent) {
           props: {
             ...props,
             modifierClassName:
-              typeof modifier === 'function'
+              typeof options?.modifier === 'function'
                 ? typeof style === 'function'
-                  ? modifier(props, parseCss(props, style(props)))
-                  : modifier(props, parseCss(props, style))
+                  ? options?.modifier(
+                      props,
+                      parseCss(props, style(props), options)
+                    )
+                  : options?.modifier(props, parseCss(props, style, options))
                 : typeof style === 'function'
-                ? parseCss(props, style(props), modifier)
-                : parseCss(props, css(style), modifier),
+                ? parseCss(props, style(props), options)
+                : parseCss(props, css(style), options),
           },
         });
       }
@@ -101,13 +107,13 @@ export function withComponent(Component: StyledComponent) {
 
 export const styled = <T = any>(
   Tag: HTMLTag | StyledComponent,
-  style: ((props: Theme<T>) => CSSInterpolation) | CSSInterpolation,
-  modifier?: ((props: Theme<T>, styleClass: string) => string) | Modifier
+  style: Style<T>,
+  options: Options
 ) => {
   if (typeof Tag === 'string') {
-    return htmlTag(Tag)(style, modifier);
+    return htmlTag(Tag)(style, options);
   } else if (Tag instanceof Object) {
-    return withComponent(Tag)(style, modifier);
+    return component(Tag)(style, options);
   } else {
     throw new Error('Styled not matched HTML tag OR SvelteComponent');
   }

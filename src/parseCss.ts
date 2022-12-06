@@ -2,13 +2,14 @@ import type { CSSInterpolation } from '@emotion/css';
 import { css, cx } from './css';
 import { parseSpacing } from './parseSpacing';
 import { parseProperties } from './parseProperty';
-import type { AnyProperties, Modifier, CommonProps } from './types';
+import type { AnyProperties, Options, CommonProps } from './types';
 
 export const parseCss = (
   props: AnyProperties & CommonProps,
   style: CSSInterpolation,
-  option?: Modifier
+  options?: Options
 ) => {
+  console.log([options && options.styledSystem]);
   return cx(
     props.className,
     css(
@@ -26,10 +27,12 @@ export const parseCss = (
         paddingLeft: parseSpacing([props.pl, props.px], true),
         ...(typeof props.sx === 'object' && props.sx),
       },
-      ...parseProperties(props),
+      ...(options && options.styledSystem && options.styledSystem === true
+        ? parseProperties(props)
+        : []),
       typeof props.sx === 'function' && props.sx(props as any),
-      typeof option === 'object' && {
-        label: option?.subffix ? option?.subffix : undefined,
+      typeof options?.subffix && {
+        label: options?.subffix ? options?.subffix : undefined,
       }
     ),
     props.modifierClassName

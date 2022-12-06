@@ -32,7 +32,23 @@ import styled from 'styled-svelte';
 
 const Div = styled('div', { padding: '10px 20px' });
 
+// OR
+const Div = styled.div({ padding: '10px 20px' });
+
 const Button = styled('button', {
+  color: '#333',
+  border: 'none',
+  outline: 'none',
+  padding: '10px 20px',
+  cursor: 'pointer',
+  backgroundColor: '#e8e8e8',
+  '&:hover': {
+    backgroundColor: '#d8d8d8',
+  },
+});
+
+// OR
+const Button = styled.button({
   color: '#333',
   border: 'none',
   outline: 'none',
@@ -65,6 +81,19 @@ The `styled` function accepts tag and styles as a object and returns a svelte co
 import styled from 'styled-svelte';
 
 const Button = styled('button', {
+  color: '#333',
+  border: 'none',
+  outline: 'none',
+  padding: '10px 20px',
+  cursor: 'pointer',
+  backgroundColor: '#e8e8e8',
+  '&:hover': {
+    backgroundColor: '#d8d8d8',
+  },
+});
+
+// OR
+const Button = styled.button({
   color: '#333',
   border: 'none',
   outline: 'none',
@@ -152,7 +181,7 @@ const Button = styled(
       backgroundColor: '#d8d8d8',
     },
   }),
-  { subffix: 'mybtn' }
+  { subffix: 'mybtn' } // optional
 );
 ```
 
@@ -180,7 +209,7 @@ const Button = styled(
       backgroundColor: '#d8d8d8',
     },
   }),
-  (props, style) => cx('btn', style)
+  { modifier: (props, style) => cx('btn', style) } // optional
 );
 ```
 
@@ -293,9 +322,33 @@ const Button = styled('button', {
 '&:hover':{backgroundColor:'#555'}})}>Click Me</Button>
 ```
 
-#### Other props
+#### Other props in Component\*: `build in`
 
-\*_Other props you can use require `string`_
+```svelte
+<script lang="ts">
+import styled from 'styled-svelte';
+
+const Button = styled('button', {
+    '&:hover': {
+      backgroundColor: '#d8d8d8',
+    },
+  },{ styledSystem: true } // Add this
+);
+</script>
+
+<!-- You can do this: Styles in Component with styledSystem: true -->
+<Button
+  p={[2,4]}
+  m={0.5}
+  color="#333"
+  border="none" outline="none"
+  padding="10px 20px"
+  cursor="pointer"
+  backgroundColor="#e8e8e8">Click
+</Button>
+```
+
+\*_If `styledSystem: true` other props you can use, require `string`_
 
 `alignItems` `alignSelf` `background` `backgroundColor` `backgroundImage` `backgroundPosition` `backgroundRepeat` `border` `borderColor` `borderWidth` `borderStyle` `borderRadius` `bottom` `boxShadow` `boxSizing` `color` `columns` `columnGap` `columnSpan` `cursor` `direction` `display` `flexBasis` `flexDirection` `flexGrow` `flexShrink` `flexWrap` `float` `font` `fontFamily` `fontStyle` `fontWeight` `gap` `grid` `gridArea` `gridAutoColumns` `gridAutoFlow` `gridAutoRows` `gridGap` `gridRow` `gridTemplateAreas` `gridTemplateColumns` `gridTemplateRows` `height` `justifyContent` `justifyItems` `justifySelf` `left` `letterSpacing` `listStyle` `lineHeight` `maxHeight` `maxWidth` `minHeight` `minWidth` `objectFit` `objectPosition` `opacity` `outline` `overflow` `overflowX` `overflowY` `position` `pointerEvents` `right` `rotate` `rowGap` `scale` `scrollBehavior` `textAlign` `textDecoration` `textIndent` `textJustify` `textOverflow` `textShadow` `textTransform` `top` `transform` `transition` `translate` `verticalAlign` `visibility` `whiteSpace` `width` `wordBreak` `wordSpacing` `zIndex`
 
