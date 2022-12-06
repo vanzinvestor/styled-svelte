@@ -51,7 +51,7 @@ export function htmlTag(tag: HTMLTag) {
                   : options?.modifier(props, parseCss(props, style, options))
                 : typeof style === 'function'
                 ? parseCss(props, style(props), options)
-                : parseCss(props, css(style), options),
+                : parseCss(props, css(style as TemplateStringsArray), options),
           },
         });
       }
@@ -97,7 +97,7 @@ export function component(Component: StyledComponent) {
                   : options?.modifier(props, parseCss(props, style, options))
                 : typeof style === 'function'
                 ? parseCss(props, style(props), options)
-                : parseCss(props, css(style), options),
+                : parseCss(props, css(style as TemplateStringsArray), options),
           },
         });
       }

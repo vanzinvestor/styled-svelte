@@ -155,6 +155,7 @@ export type Styled = {
 
 export type Style<T = any> =
   | CSSInterpolation
+  | TemplateStringsArray
   | ((props: Theme<T>) => CSSInterpolation);
 
 export type AnyProperties = {

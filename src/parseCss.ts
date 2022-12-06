@@ -1,19 +1,17 @@
-import type { CSSInterpolation } from '@emotion/css';
 import { css, cx } from './css';
 import { parseSpacing } from './parseSpacing';
 import { parseProperties } from './parseProperty';
-import type { AnyProperties, Options, CommonProps } from './types';
+import type { AnyProperties, Options, CommonProps, Style } from './types';
 
-export const parseCss = (
+export const parseCss = <T = any>(
   props: AnyProperties & CommonProps,
-  style: CSSInterpolation,
+  style: Style<T>,
   options?: Options
 ) => {
-  console.log([options && options.styledSystem]);
   return cx(
     props.className,
     css(
-      style,
+      style as TemplateStringsArray,
       {
         margin: parseSpacing(props.m),
         marginTop: parseSpacing([props.mt, props.my], true),
