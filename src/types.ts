@@ -2,6 +2,21 @@ import type { SvelteComponent } from 'svelte';
 import type { Writable } from 'svelte/store';
 import type { CSSInterpolation } from '@emotion/css';
 
+export type Styled = {
+  <T = any>(
+    Tag: HTMLTag | StyledComponent,
+    style: CSSInterpolation | ((props: Theme<T>) => CSSInterpolation),
+    modifier?:
+      | Modifier
+      | ((props: Theme<T>, styleClass: string) => string)
+      | undefined
+  ): StyledComponent;
+  [htmlTag: string]: <T = any>(
+    style: ((props: Theme<T>) => CSSInterpolation) | CSSInterpolation,
+    modifier?: ((props: Theme<T>, styleClass: string) => string) | Modifier
+  ) => StyledComponent;
+};
+
 export type AnyProperties = {
   [prop: string]: any;
 };

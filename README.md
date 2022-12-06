@@ -11,7 +11,7 @@ Styled svelte components. The [styled-svelte](https://www.npmjs.com/package/styl
   - [Styled with props — `styled` `props`](#styles-with-props)
   - [Styles and Add subfix](#styles-and-add-subfix)
   - [Styles and Combining class names — `cx`](#styles-and-combining-class-names-cx)
-  - [Styled in StyledComponent — `build in`](#styles-in-styledcomponenent)
+  - [Styles with props in Component — `build in`](#styles-with-props-in-component)
   - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
   - [Theme — `ThemeProvider` `props.theme`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
@@ -131,7 +131,7 @@ Use
 Output in HTML
 
 ```html
-<button color="#333" class="styled-1hfd8np">Click</button>
+<button class="styled-1hfd8np">Click</button>
 ```
 
 #### Styles and Add subfix
@@ -159,7 +159,7 @@ const Button = styled(
 Output in HTML
 
 ```html
-<button color="#333" class="styled-1hfd8np-mybtn">Click</button>
+<button class="styled-1hfd8np-mybtn">Click</button>
 ```
 
 #### Styles and Combining class names `cx`
@@ -187,12 +187,12 @@ const Button = styled(
 Output in HTML
 
 ```html
-<button color="#333" class="btn styled-1hfd8np">Click</button>
+<button class="btn styled-1hfd8np">Click</button>
 ```
 
 Remark: `btn` class from other css library (if you want to overide)
 
-### Styles in StyledComponenent
+### Styles with props in Component
 
 \*_Overide `styled` API_
 
@@ -262,7 +262,7 @@ Remark: `btn` class from other css library (if you want to overide)
 
 Remark: `props.theme` work with [ThemeProvider](#theme) only
 
-#### Example Styles in StyledComponenent
+#### Example Styles with props in Componenent
 
 ```svelte
 <script lang="ts">
@@ -284,7 +284,7 @@ const Button = styled('button', {
 <!-- Default use-->
 <Button>Click<Button>
 
-<!-- You can do this: Styles in StyledComponent -->
+<!-- You can do this: Styles in Component -->
 <Button p={[2,4]} m={0.5} sx={{color:'#fff',backgroundColor:'#333',
 '&:hover':{backgroundColor:'#555'}}}>Click Me</Button>
 
