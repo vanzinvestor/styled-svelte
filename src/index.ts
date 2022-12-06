@@ -12,7 +12,7 @@ export { default as ThemeProvider } from './components/ThemeProvider.svelte';
 const htmlTagStyle: any = defaultStyled;
 
 for (const tag of tags) {
-  htmlTagStyle[tag] = htmlTag(tag as HTMLTag);
+  htmlTagStyle[tag as HTMLTag] = htmlTag(tag as HTMLTag);
 }
 
-export default defaultStyled as Styled;
+export default htmlTagStyle as Styled;
