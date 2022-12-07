@@ -1,14 +1,14 @@
 <script lang="ts">
   import { setContext } from 'svelte';
-  import type { Theme, StyledThemeContext } from '../types';
+  import type { Props, StyledContext } from '../types';
   import { styledThemeKey } from '../styledThemeKey';
   import { writable } from 'svelte/store';
 
-  export let theme: Theme = { theme: {} };
+  export let theme: Props = { theme: {} };
 
   $: themStore = writable(theme);
 
-  $: setContext<StyledThemeContext<Theme>>(styledThemeKey, themStore);
+  $: setContext<StyledContext<Props>>(styledThemeKey, themStore);
 </script>
 
 <slot />

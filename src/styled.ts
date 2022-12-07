@@ -6,8 +6,8 @@ import { styledThemeKey } from './styledThemeKey';
 import type {
   StyledComponent,
   HTMLTag,
-  Theme,
-  StyledThemeContext,
+  Props,
+  StyledContext,
   Options,
   Style,
 } from './types';
@@ -23,7 +23,7 @@ export function htmlTag(tag: HTMLTag) {
 
         let theme: any;
 
-        const ctx = getContext<StyledThemeContext<Theme<T>>>(styledThemeKey);
+        const ctx = getContext<StyledContext<Props<T>>>(styledThemeKey);
 
         // Check used StyledThemeProvider
         if (ctx) {
@@ -70,7 +70,7 @@ export function component(Component: StyledComponent) {
 
         let theme: any;
 
-        const ctx = getContext<StyledThemeContext<Theme<T>>>(styledThemeKey);
+        const ctx = getContext<StyledContext<Props<T>>>(styledThemeKey);
 
         // Check used StyledThemeProvider
         if (ctx) {

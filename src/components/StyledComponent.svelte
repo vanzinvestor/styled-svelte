@@ -1,12 +1,7 @@
 <script type="ts">
   import type { CSSInterpolation } from '@emotion/css';
-  import { useForwardRef } from '../useForwardRef';
-  import type {
-    ArraySpacing,
-    HTMLTag,
-    Theme,
-    StyledThemeContext,
-  } from '../types';
+  import { useForwardRef } from '../hooks/useForwardRef';
+  import type { ArraySpacing, HTMLTag, Props, StyledContext } from '../types';
 
   export let htmlTag: HTMLTag;
   export const className: string | undefined = undefined;
@@ -117,7 +112,7 @@
     | CSSInterpolation
     | undefined = undefined;
 
-  export const theme: Theme = { theme: {} };
+  export const theme: Props = { theme: {} };
 
   const forwardRef = useForwardRef();
 </script>

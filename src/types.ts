@@ -156,17 +156,17 @@ export type Styled = {
 export type Style<T = any> =
   | CSSInterpolation
   | TemplateStringsArray
-  | ((props: Theme<T>) => CSSInterpolation);
+  | ((props: Props<T>) => CSSInterpolation);
 
 export type AnyProperties = {
   [prop: string]: any;
 };
 
-export type Theme<T = any> = AnyProperties & {
+export type Props<T = any> = AnyProperties & {
   theme: T;
 };
 
-export type StyledThemeContext<T = any> = Writable<T>;
+export type StyledContext<T = any> = Writable<T>;
 
 export type Options = {
   modifier?: (props: any, styleClass: string) => string;

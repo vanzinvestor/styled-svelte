@@ -14,7 +14,7 @@
   - [Styles and used styled-system — `styled`](#styles-and-used-styled-system)
   - [Styles with props in component — `build in`](#styles-with-props-in-component)
   - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
-  - [Theme — `ThemeProvider` `props.theme`](#theme)
+  - [Theme — `ThemeProvider` `props.theme` `useTheme`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
   - [Color Utility — `alpha` `darker` `lighten` and more](#color-utility)
   - [Other Api — `css` `cx` `cache` and more](#other-api)
@@ -399,7 +399,7 @@ export default main;
 
 ```ts
 // src/theme/themePallete.ts
-import type { Theme } from 'styled-svelte';
+import type { Props } from 'styled-svelte';
 
 export type ThemePallete = {
   light: {
@@ -421,7 +421,7 @@ export type ThemePallete = {
   mode: string;
 };
 
-export const themePallete: Theme<ThemePallete> = {
+export const themePallete: Props<ThemePallete> = {
   // start with theme:{ // Anything If You Want }
   theme: {
     light: {
@@ -445,12 +445,13 @@ export const themePallete: Theme<ThemePallete> = {
 };
 ```
 
-#### Use in components by `props.theme`
+#### Use in components by `props.theme` or `useTheme()`
 
 ```ts
-import styled from 'styled-svelte';
+import styled, { type Props, useTheme } from 'styled-svelte';
 import type { ThemePallate } from './theme/themePallete';
 
+// With Props
 const Button = styled<ThemePallete>('button', (props) => ({
   color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
   border: 'none',
@@ -462,6 +463,35 @@ const Button = styled<ThemePallete>('button', (props) => ({
     backgroundColor: props.theme[props.theme.mode].backgroundColors.lighter,
   },
 }));
+
+// OR
+const Button = styled('button', (props: Props<ThemePallete>) => ({
+  color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
+  border: 'none',
+  outline: 'none',
+  padding: '10px 20px',
+  cursor: 'pointer',
+  backgroundColor: props.theme[props.theme.mode].backgroundColors.light,
+  '&:hover': {
+    backgroundColor: props.theme[props.theme.mode].backgroundColors.lighter,
+  },
+}));
+
+// OR useTheme() API
+
+const theme = useTheme();
+
+const Button = styled('button', {
+  color: $theme.theme[$theme.theme.mode].colors.primary,
+  border: 'none',
+  outline: 'none',
+  padding: '10px 20px',
+  cursor: 'pointer',
+  backgroundColor: $theme.theme[$theme.theme.mode].backgroundColors.light,
+  '&:hover': {
+    backgroundColor: $theme.theme[$theme.theme.mode].backgroundColors.lighter,
+  },
+});
 ```
 
 ### Global Styles

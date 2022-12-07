@@ -4,6 +4,7 @@ import type { HTMLTag, Styled } from './types';
 
 export * from './color';
 export * from './css';
+export * from './hooks';
 export * from './types';
 export * from './styledThemeKey';
 
