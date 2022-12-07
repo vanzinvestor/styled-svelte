@@ -11,7 +11,7 @@
   - [Styled with props — `styled` `props`](#styles-with-props)
   - [Styles and add subfix — `styled`](#styles-and-add-subfix)
   - [Styles and combining class names — `styled` `cx`](#styles-and-combining-class-names-cx)
-  - [Styles and used system-styled — `styled`](#styles-and-used-system-styled)
+  - [Styles and used styled-system — `styled`](#styles-and-used-styled-system)
   - [Styles with props in component — `build in`](#styles-with-props-in-component)
   - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
   - [Theme — `ThemeProvider` `props.theme`](#theme)
@@ -231,7 +231,7 @@ Output in HTML
 
 Remark: `btn` class from other css library (if you want to overide)
 
-#### Styles and Used system-styled
+#### Styles and Used styled-system
 
 ```svelte
 <script lang="ts">
@@ -241,7 +241,7 @@ const Button = styled('button', {
     '&:hover': {
       backgroundColor: '#d8d8d8',
     },
-  },{ styledSystem: true } // Add this
+  },{ styledSystem: true } // optional
 );
 </script>
 
@@ -422,8 +422,8 @@ export type ThemePallete = {
 };
 
 export const themePallete: Theme<ThemePallete> = {
+  // start with theme:{ // Anything If You Want }
   theme: {
-    // start with theme:{ // Anything If You Want }
     light: {
       colors: {
         primary: '#1976d2',
