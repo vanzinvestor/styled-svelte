@@ -496,16 +496,16 @@ import {
   opaquer,
 } from 'styled-svelte';
 
-alpha('#1976d2', 0.8); //rgba(25, 118, 210, 0.8)
-darker('#1976d2', 0.2); //#145EA8
-lighten('#1976d2', 0.2); //#338DE7
-lightness('#1976d2', 0.2); //##000101
-saturate('#1976d2', 0.5); //##0076FF
-grayscale('#1976d2'); //#646464
-whiten('#1976d2', 0.8); //#2D80D2
-blacken('#1976d2', 0.8); //#1964AE
-fade('#1976d2', 0.2); //rgba(25, 118, 210, 0.8)
-opaquer('#1976d2', 0.8); //rgb(25, 118, 210)
+alpha('#1976d2', 0.8); // #1976d2cc
+darker('#1976d2', 0.2); // #145EA8
+lighten('#1976d2', 0.2); // #338DE7
+lightness('#1976d2', 0.2); // ##000101
+saturate('#1976d2', 0.5); // ##0076FF
+grayscale('#1976d2'); // #646464
+whiten('#1976d2', 0.8); // #2D80D2
+blacken('#1976d2', 0.8); // #1964AE
+fade('#1976d2', 0.2); // #0576d2cc
+opaquer('#1976d2', 0.8); // #1976d2
 ```
 
 ### Other Api
