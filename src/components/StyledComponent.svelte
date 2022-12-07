@@ -107,7 +107,7 @@
   export const wordBreak: string | undefined = undefined;
   export const wordSpacing: string | undefined = undefined;
   export const zIndex: string | undefined = undefined;
-  export const sx:
+  export let sx:
     | ((props: any) => CSSInterpolation)
     | CSSInterpolation
     | undefined = undefined;
@@ -115,6 +115,8 @@
   export const theme: Props = { theme: {} };
 
   const forwardRef = useForwardRef();
+
+  $: sx;
 </script>
 
 <svelte:element this={htmlTag} use:forwardRef {...$$restProps}>

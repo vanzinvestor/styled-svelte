@@ -1,9 +1,9 @@
 import { getContext } from 'svelte';
 import { styledThemeKey } from '../styledThemeKey';
-import type { StyledContext, Props } from '../types';
+import type { ThemeContext } from '../types';
 
 export const useTheme = <T = any>() => {
-  const ctx = getContext<StyledContext<Props<T>>>(styledThemeKey);
+  const ctx = getContext<ThemeContext<T>>(styledThemeKey);
 
   if (process.env.NODE_ENV !== 'production') {
     if (!ctx) {
@@ -13,5 +13,5 @@ export const useTheme = <T = any>() => {
     }
   }
 
-  return ctx;
+  return ctx.theme;
 };

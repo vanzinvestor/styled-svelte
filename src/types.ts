@@ -166,7 +166,9 @@ export type Props<T = any> = AnyProperties & {
   theme: T;
 };
 
-export type StyledContext<T = any> = Writable<T>;
+export type ThemeContext<T = any> = {
+  theme: Writable<T>;
+};
 
 export type Options = {
   modifier?: (props: any, styleClass: string) => string;

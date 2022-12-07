@@ -6,8 +6,7 @@ import { styledThemeKey } from './styledThemeKey';
 import type {
   StyledComponent,
   HTMLTag,
-  Props,
-  StyledContext,
+  ThemeContext,
   Options,
   Style,
 } from './types';
@@ -23,15 +22,15 @@ export function htmlTag(tag: HTMLTag) {
 
         let theme: any;
 
-        const ctx = getContext<StyledContext<Props<T>>>(styledThemeKey);
+        const ctx = getContext<ThemeContext<T>>(styledThemeKey);
 
         // Check used StyledThemeProvider
         if (ctx) {
-          const unsubscribe = ctx.subscribe((t) => {
+          const unsubscribe = ctx.theme.subscribe((t) => {
             theme = t;
           });
 
-          props['theme'] = theme.theme;
+          props['theme'] = theme;
 
           onDestroy(unsubscribe);
         }
@@ -70,15 +69,15 @@ export function component(Component: StyledComponent) {
 
         let theme: any;
 
-        const ctx = getContext<StyledContext<Props<T>>>(styledThemeKey);
+        const ctx = getContext<ThemeContext<T>>(styledThemeKey);
 
         // Check used StyledThemeProvider
         if (ctx) {
-          const unsubscribe = ctx.subscribe((t) => {
+          const unsubscribe = ctx.theme.subscribe((t) => {
             theme = t;
           });
 
-          props['theme'] = theme.theme;
+          props['theme'] = theme;
 
           onDestroy(unsubscribe);
         }

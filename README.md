@@ -399,8 +399,6 @@ export default main;
 
 ```ts
 // src/theme/themePallete.ts
-import type { Props } from 'styled-svelte';
-
 export type ThemePallete = {
   light: {
     colors: {
@@ -421,33 +419,31 @@ export type ThemePallete = {
   mode: string;
 };
 
-export const themePallete: Props<ThemePallete> = {
-  // start with theme:{ // Anything If You Want }
-  theme: {
-    light: {
-      colors: {
-        primary: '#1976d2',
-        seconday: '#9c27b0',
-        error: '#df2f2f',
-        waraing: '#ed6c02',
-        info: '#0288d1',
-        success: '#2e7d36',
-      },
-      backgroundColors: {
-        primary: '#fff',
-        seconday: '#f8f8f8',
-        light: '#e5e5e5',
-        lighter: '#e8e8e8',
-      },
+export const themePallete: ThemePallete = {
+  light: {
+    colors: {
+      primary: '#1976d2',
+      seconday: '#9c27b0',
+      error: '#df2f2f',
+      waraing: '#ed6c02',
+      info: '#0288d1',
+      success: '#2e7d36',
     },
-    mode: 'light',
+    backgroundColors: {
+      primary: '#fff',
+      seconday: '#f8f8f8',
+      light: '#e5e5e5',
+      lighter: '#e8e8e8',
+    },
   },
+  mode: 'light',
 };
 ```
 
 #### Use in components by `props.theme` or `useTheme()`
 
-```ts
+```svelte
+<script lang="ts">
 import styled, { type Props, useTheme } from 'styled-svelte';
 import type { ThemePallate } from './theme/themePallete';
 
@@ -478,20 +474,31 @@ const Button = styled('button', (props: Props<ThemePallete>) => ({
 }));
 
 // OR useTheme() API
-
 const theme = useTheme();
 
 const Button = styled('button', {
-  color: $theme.theme[$theme.theme.mode].colors.primary,
+  color: $theme[$theme.mode].colors.primary,
   border: 'none',
   outline: 'none',
   padding: '10px 20px',
   cursor: 'pointer',
-  backgroundColor: $theme.theme[$theme.theme.mode].backgroundColors.light,
+  backgroundColor: $theme[$theme.mode].backgroundColors.light,
   '&:hover': {
-    backgroundColor: $theme.theme[$theme.theme.mode].backgroundColors.lighter,
+    backgroundColor: $theme[$theme.mode].backgroundColors.lighter,
   },
 });
+
+const toggleMode = () => {
+  theme.update((t) => {
+    t.mode = t.mode === 'light' ? 'dark' : 'light';
+
+    return t;
+  });
+};
+
+</script>
+
+<Button on:click={toggleMode}>Change Mode</Button>;
 ```
 
 ### Global Styles
