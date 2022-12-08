@@ -1,7 +1,7 @@
 <script type="ts">
   import type { CSSInterpolation } from '@emotion/css';
   import { useForwardRef } from '../hooks/useForwardRef';
-  import type { ArraySpacing, HTMLTag, Props, StyledContext } from '../types';
+  import type { ArraySpacing, HTMLTag, Props, ThemeContext } from '../types';
 
   export let htmlTag: HTMLTag;
   export const className: string | undefined = undefined;
@@ -107,7 +107,7 @@
   export const wordBreak: string | undefined = undefined;
   export const wordSpacing: string | undefined = undefined;
   export const zIndex: string | undefined = undefined;
-  export let sx:
+  export const sx:
     | ((props: any) => CSSInterpolation)
     | CSSInterpolation
     | undefined = undefined;
@@ -115,8 +115,6 @@
   export const theme: Props = { theme: {} };
 
   const forwardRef = useForwardRef();
-
-  $: sx;
 </script>
 
 <svelte:element this={htmlTag} use:forwardRef {...$$restProps}>
