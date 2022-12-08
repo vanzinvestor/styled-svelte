@@ -508,13 +508,13 @@ const toggleMode = () => {
 ```ts
 import { injectGlobal } from 'styled-svelte';
 
-injectGlobal(
+injectGlobal({
   '*': {
-    pading:0,
-    margin:0,
-    boxSizing: 'borderBox',
-  }
-);
+    padding: 0,
+    margin: 0,
+    boxSizing: 'border-box',
+  },
+});
 ```
 
 ### Color Utility
