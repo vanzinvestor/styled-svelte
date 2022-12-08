@@ -10,6 +10,8 @@ export * from './styledThemeKey';
 
 export { default as ThemeProvider } from './components/ThemeProvider.svelte';
 
+export { default as Styled } from './components/Styled.svelte';
+
 const htmlTagStyle: any = defaultStyled;
 
 for (const tag of tags) {

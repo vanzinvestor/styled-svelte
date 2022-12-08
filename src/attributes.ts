@@ -29,6 +29,7 @@ export const attributes = new Map([
   ['float', 'float'],
   ['font', 'font'],
   ['fontFamily', 'fontFamily'],
+  ['fontSize', 'fontSize'],
   ['fontStyle', 'fontStyle'],
   ['fontWeight', 'fontWeight'],
   ['gap', 'gap'],
