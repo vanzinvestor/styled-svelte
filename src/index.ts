@@ -8,14 +8,14 @@ export * from './hooks';
 export * from './types';
 export * from './styledThemeKey';
 
+export { default as StyledComponent } from './components/StyledComponent.svelte';
+
 export { default as ThemeProvider } from './components/ThemeProvider.svelte';
 
-export { default as Styled } from './components/Styled.svelte';
-
-const htmlTagStyle: any = defaultStyled;
+const htmlTagStyled: any = defaultStyled;
 
 for (const tag of tags) {
-  htmlTagStyle[tag as HTMLTag] = htmlTag(tag as HTMLTag);
+  htmlTagStyled[tag as HTMLTag] = htmlTag(tag as HTMLTag);
 }
 
-export default htmlTagStyle as Styled;
+export default htmlTagStyled as Styled;
