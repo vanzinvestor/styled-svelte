@@ -294,6 +294,10 @@
   );
 </script>
 
-<svelte:element this={tag} class={style} use:forwardRef {...$$restProps}>
-  <slot />
-</svelte:element>
+{#if tag === 'area' || tag === 'base' || tag === 'br' || tag === 'col' || tag === 'embed' || tag === 'hr' || tag === 'img' || tag === 'input' || tag === 'link' || tag === 'meta' || tag === 'param' || tag === 'source' || tag === 'track' || tag === 'circle' || tag === 'ellipse' || tag === 'image' || tag === 'line' || tag === 'path' || tag === 'polygon' || tag === 'polyline' || tag === 'rect' || tag === 'stop'}
+  <svelte:element this={tag} class={style} use:forwardRef {...$$restProps} />
+{:else}
+  <svelte:element this={tag} class={style} use:forwardRef {...$$restProps}>
+    <slot />
+  </svelte:element>
+{/if}
