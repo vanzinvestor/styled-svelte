@@ -9,10 +9,8 @@
   - [Styles with html tag — `styled`](#styled)
   - [styled with component tag — `styled`](#styled-with-component-tag)
   - [Styled with props — `styled` `props`](#styles-with-props)
-  - [Styles and add subfix — `styled`](#styles-and-add-subfix)
-  - [Styles and combining class names — `styled` `cx`](#styles-and-combining-class-names-cx)
-  - [Styles and used styled-system — `styled`](#styles-and-used-styled-system)
   - [Styles with props in component — `build in`](#styles-with-props-in-component)
+  - [Styles with styledSystem — `styledSystem` `build in`](#styles-with-styledsystem)
   - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
   - [Theme — `ThemeProvider` `props.theme` `useTheme`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
@@ -96,7 +94,7 @@ const Button = styled.button({
 });
 ```
 
-`styled` with css styles\*, except you call it with an html tag
+`styled` with css styles\*\*\*, except you call it with an html tag
 
 ```ts
 import styled from 'styled-svelte';
@@ -114,7 +112,7 @@ const Button = styled.button`
 `;
 ```
 
-Remark: css styles not support variable in template string
+Remark: \*\*\*css styles not support variable in template string
 
 ### Styled with Component tag
 
@@ -172,90 +170,6 @@ Output in HTML
 ```html
 <button class="styled-1hfd8np">Click</button>
 ```
-
-#### Styles and Add subfix
-
-```ts
-import styled, { cx } from 'styled-svelte';
-
-const Button = styled(
-  'button',
-  (props) => ({
-    color: props.color,
-    border: 'none',
-    outline: 'none',
-    padding: '10px 20px',
-    cursor: 'pointer',
-    backgroundColor: '#e8e8e8',
-    '&:hover': {
-      backgroundColor: '#d8d8d8',
-    },
-  }),
-  { subffix: 'mybtn' } // optional
-);
-```
-
-Output in HTML
-
-```html
-<button class="styled-1hfd8np-mybtn">Click</button>
-```
-
-#### Styles and Combining class names `cx`
-
-```ts
-import styled, { cx } from 'styled-svelte';
-
-const Button = styled(
-  'button',
-  (props) => ({
-    color: props.color,
-    border: 'none',
-    outline: 'none',
-    padding: '10px 20px',
-    cursor: 'pointer',
-    backgroundColor: '#e8e8e8',
-    '&:hover': {
-      backgroundColor: '#d8d8d8',
-    },
-  }),
-  { modifier: (props, style) => cx('btn', style) } // optional
-);
-```
-
-Output in HTML
-
-```html
-<button class="btn styled-1hfd8np">Click</button>
-```
-
-Remark: `btn` class from other css library (if you want to overide)
-
-#### Styles and Used styled-system
-
-```svelte
-<script lang="ts">
-import styled from 'styled-svelte';
-
-const Button = styled('button', {
-    '&:hover': {
-      backgroundColor: '#d8d8d8',
-    },
-  },{ styledSystem: true } // optional
-);
-</script>
-
-<Button
-  color="#333"
-  border="none"
-  outline="none"
-  padding="10px 20px"
-  cursor="pointer"
-  backgroundColor="#e8e8e8">Click
-</Button>
-```
-
-The other props you can used theme. please see [Other props in Component](#other-props-in-component)
 
 ### Styles with props in Component
 
@@ -358,9 +272,51 @@ const Button = styled('button', {
 '&:hover':{backgroundColor:'#555'}})}>Click Me</Button>
 ```
 
+#### Add subffix
+
+```svelte
+<Button subffix="mybtn">Click</Button>
+```
+
+Output in HTML
+
+```html
+<button class="styled-1hfd8np-mybtn">Click</button>
+```
+
+#### Combining class names
+
+```svelte
+<Button className="btn">Click</Button>
+```
+
+Output in HTML
+
+```html
+<button class="btn styled-1hfd8np">Click</button>
+```
+
+Remark: `btn` class from other css library (if you want to overide)
+
+#### Styles with styledSystem
+
+```svelte
+<Button
+  styledSystem
+  color="#333"
+  border="none"
+  outline="none"
+  padding="10px 20px"
+  cursor="pointer"
+  backgroundColor="#e8e8e8">Click
+</Button>
+```
+
+The other props you can used theme. please see [Other props in Component](#other-props-in-component)
+
 #### Other props in Component
 
-\*_If `styledSystem: true`, the other props you can used theme. build in, require `string`_
+\*_If `styledSystem={true}`, the other props you can used. build in, require `string`_
 
 `alignItems` `alignSelf` `background` `backgroundColor` `backgroundImage` `backgroundPosition` `backgroundRepeat` `border` `borderColor` `borderWidth` `borderStyle` `borderRadius` `bottom` `boxShadow` `boxSizing` `color` `columns` `columnGap` `columnSpan` `cursor` `direction` `display` `flexBasis` `flexDirection` `flexGrow` `flexShrink` `flexWrap` `float` `font` `fontFamily` `fontStyle` `fontWeight` `gap` `grid` `gridArea` `gridAutoColumns` `gridAutoFlow` `gridAutoRows` `gridGap` `gridRow` `gridTemplateAreas` `gridTemplateColumns` `gridTemplateRows` `height` `justifyContent` `justifyItems` `justifySelf` `left` `letterSpacing` `listStyle` `lineHeight` `maxHeight` `maxWidth` `minHeight` `minWidth` `objectFit` `objectPosition` `opacity` `outline` `overflow` `overflowX` `overflowY` `position` `pointerEvents` `right` `rotate` `rowGap` `scale` `scrollBehavior` `textAlign` `textDecoration` `textIndent` `textJustify` `textOverflow` `textShadow` `textTransform` `top` `transform` `transition` `translate` `verticalAlign` `visibility` `whiteSpace` `width` `wordBreak` `wordSpacing` `zIndex`
 
@@ -400,28 +356,15 @@ export default main;
 ```ts
 // src/theme/themePallete.ts
 export type ThemePallete = {
-  light: {
-    colors: {
-      primary: string;
-      seconday: string;
-      error: string;
-      waraing: string;
-      info: string;
-      success: string;
-    };
-    backgroundColors: {
-      primary: string;
-      seconday: string;
-      light: string;
-      lighter: string;
-    };
-  };
+  light: Pallete;
+  dark: Pallete;
   mode: string;
 };
 
+// Example theme pallete
 export const themePallete: ThemePallete = {
   light: {
-    colors: {
+    color: {
       primary: '#1976d2',
       seconday: '#9c27b0',
       error: '#df2f2f',
@@ -429,11 +372,33 @@ export const themePallete: ThemePallete = {
       info: '#0288d1',
       success: '#2e7d36',
     },
-    backgroundColors: {
+    background: {
       primary: '#fff',
       seconday: '#f8f8f8',
-      light: '#e5e5e5',
-      lighter: '#e8e8e8',
+    },
+    text: {
+      primary: '#000000de',
+      seconday: '#00000099',
+      disable: '#00000061',
+    },
+  },
+  dark: {
+    color: {
+      primary: '#90caf9',
+      seconday: '#ce93d8',
+      error: '#f44336',
+      waraing: '#ffa726',
+      info: '#29b6f6',
+      success: '#66bb6a',
+    },
+    background: {
+      primary: '#121212',
+      seconday: '#1f1f1f',
+    },
+    text: {
+      primary: '#fff',
+      seconday: '#ffffffb3',
+      disable: '#ffffff80',
     },
   },
   mode: 'light',
@@ -444,10 +409,10 @@ export const themePallete: ThemePallete = {
 
 ```svelte
 <script lang="ts">
-import styled, { type Props, useTheme } from 'styled-svelte';
+import styled, { type Props, useTheme, alpha } from 'styled-svelte';
 import type { ThemePallate } from './theme/themePallete';
 
-// With Props
+// With Props and Types
 const Button = styled<ThemePallete>('button', (props) => ({
   color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
   border: 'none',
@@ -460,33 +425,33 @@ const Button = styled<ThemePallete>('button', (props) => ({
   },
 }));
 
-// OR
+// OR add Types with Props
 const Button = styled('button', (props: Props<ThemePallete>) => ({
-  color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
-  border: 'none',
-  outline: 'none',
-  padding: '10px 20px',
-  cursor: 'pointer',
-  backgroundColor: props.theme[props.theme.mode].backgroundColors.light,
-  '&:hover': {
-    backgroundColor: props.theme[props.theme.mode].backgroundColors.lighter,
-  },
+  //
 }));
 
 // OR useTheme() API
 const theme = useTheme();
 
 const Button = styled('button', {
-  color: $theme[$theme.mode].colors.primary,
+  color: $theme[$theme.mode].color.primary,
   border: 'none',
   outline: 'none',
   padding: '10px 20px',
   cursor: 'pointer',
-  backgroundColor: $theme[$theme.mode].backgroundColors.light,
+  backgroundColor: $theme[$theme.mode].color.primary,
   '&:hover': {
-    backgroundColor: $theme[$theme.mode].backgroundColors.lighter,
+    backgroundColor: alpha($theme[$theme.mode].color.primary, 0.2),
   },
 });
+</script>
+```
+
+#### Toggle Dark Mode
+
+```svelte
+<script lang="ts">
+const theme = useTheme();
 
 const toggleMode = () => {
   theme.update((t) => {
@@ -498,7 +463,7 @@ const toggleMode = () => {
 
 </script>
 
-<Button on:click={toggleMode}>Change Mode</Button>;
+<Button on:click={toggleMode}>Toggle dark mode</Button>;
 ```
 
 ### Global Styles
