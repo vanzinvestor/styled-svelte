@@ -12,7 +12,7 @@ export function htmlTag(tag: HTMLTag) {
           props: {
             ...props,
             tag: tag,
-            cx: style,
+            ox: style,
           },
         });
       }

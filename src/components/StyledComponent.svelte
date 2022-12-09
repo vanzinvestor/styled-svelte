@@ -3,7 +3,7 @@
   import { getContext } from 'svelte';
   import { useForwardRef } from '../hooks/useForwardRef';
   import type { ArraySpacing, HTMLTag, ThemeContext } from '../types';
-  import { css as systemCss, cx as systemCx } from '../css';
+  import { css, cx } from '../css';
   import { parseSpacing } from '../parseSpacing';
   import { parseProperties } from '../parseProperty';
   import { useTheme } from '../hooks';
@@ -125,17 +125,27 @@
   export let zIndex: string | undefined = undefined;
   export let suffix: string | undefined = undefined;
   export let styledSystem: boolean = false;
-  export let cx:
-    | ((props: any) => CSSInterpolation)
-    | CSSInterpolation
-    | undefined = undefined;
   export let sx:
     | ((props: any) => CSSInterpolation)
     | CSSInterpolation
     | undefined = undefined;
+  /**
+   * @remark
+   * ox - Internal use only
+   */
+  export let ox:
+    | ((props: any) => CSSInterpolation)
+    | CSSInterpolation
+    | CSSInterpolation[]
+    | undefined = undefined;
+  /**
+   * @remark
+   * lx - Internal use only
+   */
   export let lx:
     | ((props: any) => CSSInterpolation)
     | CSSInterpolation
+    | CSSInterpolation[]
     | undefined = undefined;
 
   let forwardRef = useForwardRef();
@@ -254,11 +264,12 @@
     theme: $theme,
   };
 
-  $: style = systemCx(
+  $: style = cx(
     className,
-    systemCss(
-      cx && typeof cx === 'object' && cx,
-      cx && typeof cx === 'function' && cx(ownerState),
+    css(
+      ox && typeof ox === 'object' && !Array.isArray(ox) && ox,
+      ...(ox && Array.isArray(ox) ? ox : []),
+      ox && typeof ox === 'function' && ox(ownerState),
       {
         margin: parseSpacing(m),
         marginTop: parseSpacing([mt, my], true),
