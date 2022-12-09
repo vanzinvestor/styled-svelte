@@ -318,7 +318,7 @@ The other props you can used theme. please see [Other props in Component](#other
 
 \*_If `styledSystem={true}`, the other props you can used. build in, require `string`_
 
-`alignItems` `alignSelf` `background` `backgroundColor` `backgroundImage` `backgroundPosition` `backgroundRepeat` `border` `borderColor` `borderWidth` `borderStyle` `borderRadius` `bottom` `boxShadow` `boxSizing` `color` `columns` `columnGap` `columnSpan` `cursor` `direction` `display` `flexBasis` `flexDirection` `flexGrow` `flexShrink` `flexWrap` `float` `font` `fontFamily` `fontStyle` `fontWeight` `gap` `grid` `gridArea` `gridAutoColumns` `gridAutoFlow` `gridAutoRows` `gridGap` `gridRow` `gridTemplateAreas` `gridTemplateColumns` `gridTemplateRows` `height` `justifyContent` `justifyItems` `justifySelf` `left` `letterSpacing` `listStyle` `lineHeight` `maxHeight` `maxWidth` `minHeight` `minWidth` `objectFit` `objectPosition` `opacity` `outline` `overflow` `overflowX` `overflowY` `position` `pointerEvents` `right` `rotate` `rowGap` `scale` `scrollBehavior` `textAlign` `textDecoration` `textIndent` `textJustify` `textOverflow` `textShadow` `textTransform` `top` `transform` `transition` `translate` `verticalAlign` `visibility` `whiteSpace` `width` `wordBreak` `wordSpacing` `zIndex`
+`alignItems` `alignSelf` `background` `backgroundColor` `backgroundImage` `backgroundPosition` `backgroundRepeat` `border` `borderColor` `borderWidth` `borderStyle` `borderRadius` `bottom` `boxShadow` `boxSizing` `color` `columns` `columnGap` `columnSpan` `cursor` `direction` `display` `flexBasis` `flexDirection` `flexGrow` `flexShrink` `flexWrap` `float` `font` `fontFamily` `fontStyle` `fontWeight` `gap` `grid` `gridArea` `gridAutoColumns` `gridAutoFlow` `gridAutoRows` `gridGap` `gridRow` `gridTemplateAreas` `gridTemplateColumns` `gridTemplateRows` `height` `justifyContent` `justifyItems` `justifySelf` `left` `letterSpacing` `listStyle` `lineHeight` `margin` `marginTop` `marginRight` `marginBottom` `marginLeft` `maxHeight` `maxWidth` `minHeight` `minWidth` `objectFit` `objectPosition` `opacity` `outline` `overflow` `overflowX` `overflowY` `padding` `paddingTop` `paddingRight` `paddingBottom` `paddingLeft` `position` `pointerEvents` `right` `rotate` `rowGap` `scale` `scrollBehavior` `textAlign` `textDecoration` `textIndent` `textJustify` `textOverflow` `textShadow` `textTransform` `top` `transform` `transition` `translate` `verticalAlign` `visibility` `whiteSpace` `width` `wordBreak` `wordSpacing` `zIndex`
 
 ### Forwarding Refs Events
 
@@ -355,13 +355,33 @@ export default main;
 
 ```ts
 // src/theme/themePallete.ts
+// Example theme pallete
 export type ThemePallete = {
   light: Pallete;
   dark: Pallete;
   mode: string;
 };
 
-// Example theme pallete
+type Pallete = {
+  color: {
+    primary: string;
+    seconday: string;
+    error: string;
+    waraing: string;
+    info: string;
+    success: string;
+  };
+  background: {
+    primary: string;
+    seconday: string;
+  };
+  text: {
+    primary: string;
+    seconday: string;
+    disable: string;
+  };
+};
+
 export const themePallete: ThemePallete = {
   light: {
     color: {
@@ -412,7 +432,7 @@ export const themePallete: ThemePallete = {
 import styled, { type Props, useTheme, alpha } from 'styled-svelte';
 import type { ThemePallate } from './theme/themePallete';
 
-// With Props and Types
+// Access theme from Props and assign Types on styled
 const Button = styled<ThemePallete>('button', (props) => ({
   color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
   border: 'none',
@@ -425,8 +445,13 @@ const Button = styled<ThemePallete>('button', (props) => ({
   },
 }));
 
-// OR add Types with Props
+// OR Access theme from Props and assign Types on props
 const Button = styled('button', (props: Props<ThemePallete>) => ({
+  //
+}));
+
+// OR Access theme from Props and assign Types on props and destructuring
+const Button = styled('button', ({ theme }: Props<ThemePallete>) => ({
   //
 }));
 
