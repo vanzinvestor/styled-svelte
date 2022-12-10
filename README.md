@@ -16,6 +16,7 @@
   - [Global Styles — `injectGlobal`](#global-styles)
   - [Color Utility — `alpha` `darker` `lighten` and more](#color-utility)
   - [Other Api — `css` `cx` `cache` and more](#other-api)
+- [Example App](#example-app)
 - [Thanks](#thanks-to-inspire-me)
 
 ## Quick Start
@@ -591,6 +592,10 @@ import {
 } =  from 'styled-svelte';
 
 ```
+
+### Example App
+
+[Theme switcher](https://stackblitz.com/edit/demo-styled-svelte?file=src%2Fpages%2FShop.svelte,src%2Fpages%2FBlog.svelte,src%2Fpages%2FContact.svelte,src%2Fpages%2FHome.svelte&terminal=dev)
 
 ### Thanks to inspire me
 
