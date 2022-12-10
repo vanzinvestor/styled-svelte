@@ -190,7 +190,7 @@ const Button = styled(
   cursor: pointer;
   background-color: #e8e8e8;
   &:hover {
-    backgroundColor: #d8d8d8;
+    background-color: #d8d8d8;
   }
 `
 );
