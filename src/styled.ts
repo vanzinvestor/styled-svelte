@@ -1,52 +1,11 @@
-import StyledElement from './components/StyledComponent.svelte';
-import type { StyledComponent, HTMLTag, Style } from './types';
+import { htmlTag, styledCombine } from './base';
+import { tags } from './tags';
+import type { HTMLTag, Styled } from './types';
 
-export function htmlTag(tag: HTMLTag) {
-  return function <T = any>(style: Style<T>): StyledComponent {
-    return class extends StyledElement {
-      constructor(args: any) {
-        const { props, ...restOptions } = args;
+const styled: any = styledCombine;
 
-        super({
-          ...restOptions,
-          props: {
-            ...props,
-            tag: tag,
-            ox: style,
-          },
-        });
-      }
-    };
-  };
+for (const tag of tags) {
+  styled[tag as HTMLTag] = htmlTag(tag as HTMLTag);
 }
 
-export function component(Component: StyledComponent) {
-  return function <T = any>(style: Style<T>): StyledComponent {
-    return class extends Component {
-      constructor(args: any) {
-        const { props, ...restOptions } = args;
-
-        super({
-          ...restOptions,
-          props: {
-            ...props,
-            lx: style,
-          },
-        });
-      }
-    };
-  };
-}
-
-export const styled = <T = any>(
-  Tag: HTMLTag | StyledComponent,
-  style: Style<T>
-) => {
-  if (typeof Tag === 'string') {
-    return htmlTag(Tag)(style);
-  } else if (Tag instanceof Object) {
-    return component(Tag)(style);
-  } else {
-    throw new Error('Styled not matched HTML tag OR SvelteComponent');
-  }
-};
+export default styled as Styled;

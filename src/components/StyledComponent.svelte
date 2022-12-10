@@ -262,6 +262,7 @@
     suffix,
     styledSystem,
     theme: $theme,
+    ...$$restProps,
   };
 
   $: style = cx(

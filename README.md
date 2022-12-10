@@ -94,7 +94,27 @@ const Button = styled.button({
 });
 ```
 
-`styled` with css styles\*\*\*, except you call it with an html tag
+`styled` with css styles **with props**, except you call it with an html tag
+
+```ts
+import styled from 'styled-svelte';
+
+const Button = styled.button(
+  (props) => `
+  color: ${props.color};
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  backgroundcolor: ${props.backgroundcolor};
+  &:hover: {
+    backgroundcolor: #d8d8d8;
+  }
+`
+);
+```
+
+`styled` with css styles\* **_without props_**, except you call it with an html tag
 
 ```ts
 import styled from 'styled-svelte';
@@ -112,7 +132,7 @@ const Button = styled.button`
 `;
 ```
 
-Remark: \*\*\*css styles not support variable in template string
+Remark: \*css styles without props not support variable in template string.
 
 ### Styled with Component tag
 
@@ -146,6 +166,7 @@ const NewButton = styled(Button, {
 ```ts
 import styled from 'styled-svelte';
 
+// Object Styles
 const Button = styled('button', (props) => ({
   color: props.color,
   border: 'none',
@@ -157,6 +178,22 @@ const Button = styled('button', (props) => ({
     backgroundColor: '#d8d8d8',
   },
 }));
+
+// CSS Styles
+const Button = styled(
+  'button',
+  (props) => `
+  color: ${props.color};
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #e8e8e8;
+  &:hover {
+    backgroundColor: #d8d8d8;
+  }
+`
+);
 ```
 
 Use
@@ -365,19 +402,19 @@ export type ThemePallete = {
 type Pallete = {
   color: {
     primary: string;
-    seconday: string;
+    secondary: string;
     error: string;
-    waraing: string;
+    warning: string;
     info: string;
     success: string;
   };
   background: {
     primary: string;
-    seconday: string;
+    secondary: string;
   };
   text: {
     primary: string;
-    seconday: string;
+    secondary: string;
     disable: string;
   };
 };
@@ -386,38 +423,38 @@ export const themePallete: ThemePallete = {
   light: {
     color: {
       primary: '#1976d2',
-      seconday: '#9c27b0',
+      secondary: '#9c27b0',
       error: '#df2f2f',
-      waraing: '#ed6c02',
+      warning: '#ed6c02',
       info: '#0288d1',
       success: '#2e7d36',
     },
     background: {
       primary: '#fff',
-      seconday: '#f8f8f8',
+      secondary: '#f8f8f8',
     },
     text: {
       primary: '#000000de',
-      seconday: '#00000099',
+      secondary: '#00000099',
       disable: '#00000061',
     },
   },
   dark: {
     color: {
       primary: '#90caf9',
-      seconday: '#ce93d8',
+      secondary: '#ce93d8',
       error: '#f44336',
-      waraing: '#ffa726',
+      warning: '#ffa726',
       info: '#29b6f6',
       success: '#66bb6a',
     },
     background: {
       primary: '#121212',
-      seconday: '#1f1f1f',
+      secondary: '#1f1f1f',
     },
     text: {
       primary: '#fff',
-      seconday: '#ffffffb3',
+      secondary: '#ffffffb3',
       disable: '#ffffff80',
     },
   },
