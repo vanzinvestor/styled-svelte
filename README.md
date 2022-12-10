@@ -106,7 +106,7 @@ const Button = styled.button(
   outline: none;
   padding: 10px 20px;
   cursor: pointer;
-  backgroundcolor: ${props.backgroundcolor};
+  backgroundcolor: #e8e8e8;
   &:hover: {
     backgroundcolor: #d8d8d8;
   }
