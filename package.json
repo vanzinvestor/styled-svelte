@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "compile": "tsc",
-    "dev": "onchange \"src/\" -- npm run build",
+    "dev": "onchange \"src/\" -- npm run compile && npm run trans",
     "build": "npm run clean && npm run compile && npm run trans",
     "prepublishOnly": "npm run build",
     "trans": "svelte-transpile-typescript -i src/components -o lib/components"

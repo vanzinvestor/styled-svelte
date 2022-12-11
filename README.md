@@ -79,7 +79,7 @@ const Button = styled('button', {
 });
 ```
 
-`styled` with object styles. except you call it with an html tag
+`styled` with **object styles**. except you call it with an html tag
 
 ```ts
 const Button = styled.button({
@@ -95,27 +95,7 @@ const Button = styled.button({
 });
 ```
 
-`styled` with css styles **with props**, except you call it with an html tag
-
-```ts
-import styled from 'styled-svelte';
-
-const Button = styled.button(
-  (props) => `
-  color: ${props.color};
-  border: none;
-  outline: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  backgroundcolor: #e8e8e8;
-  &:hover: {
-    backgroundcolor: #d8d8d8;
-  }
-`
-);
-```
-
-`styled` with css styles\* **_without props_**, except you call it with an html tag
+`styled` with **css styles**, except you call it with an html tag
 
 ```ts
 import styled from 'styled-svelte';
@@ -132,8 +112,6 @@ const Button = styled.button`
   }
 `;
 ```
-
-Remark: \*css styles without props not support variable in template string.
 
 ### Styled with Component tag
 
@@ -164,11 +142,13 @@ const NewButton = styled(Button, {
 
 ### Styles with props
 
-```ts
-import styled from 'styled-svelte';
+#### Object Styles
 
-// Object Styles
-const Button = styled('button', (props) => ({
+```ts
+import styled, { type AnyProperties } from 'styled-svelte';
+
+// Object Styles function return object
+const Button = styled('button', (props: AnyProperties) => ({
   color: props.color,
   border: 'none',
   outline: 'none',
@@ -180,10 +160,10 @@ const Button = styled('button', (props) => ({
   },
 }));
 
-// CSS Styles
+// Object Styles function return string (look like css)
 const Button = styled(
   'button',
-  (props) => `
+  (props: AnyProperties) => `
   color: ${props.color};
   border: none;
   outline: none;
@@ -195,6 +175,25 @@ const Button = styled(
   }
 `
 );
+```
+
+#### CSS Styles
+
+```ts
+import styled, { type AnyProperties } from 'styled-svelte';
+
+// Css Styles with Props (function return props)
+const Button = styled.button`
+  color: ${(props: AnyProperties) => props.color};
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  backgroundcolor: #e8e8e8;
+  &:hover: {
+    backgroundcolor: #d8d8d8;
+  }
+`;
 ```
 
 Use

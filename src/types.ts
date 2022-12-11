@@ -4,140 +4,352 @@ import type { CSSInterpolation } from '@emotion/css';
 
 export type Styled = {
   <T = any>(Tag: HTMLTag | StyledComponent, style: Style<T>): StyledComponent;
-  a: <T = any>(style: Style<T>) => StyledComponent;
-  abbr: <T = any>(style: Style<T>) => StyledComponent;
-  address: <T = any>(style: Style<T>) => StyledComponent;
-  area: <T = any>(style: Style<T>) => StyledComponent;
-  article: <T = any>(style: Style<T>) => StyledComponent;
-  aside: <T = any>(style: Style<T>) => StyledComponent;
-  audio: <T = any>(style: Style<T>) => StyledComponent;
-  b: <T = any>(style: Style<T>) => StyledComponent;
-  base: <T = any>(style: Style<T>) => StyledComponent;
-  bdi: <T = any>(style: Style<T>) => StyledComponent;
-  bdo: <T = any>(style: Style<T>) => StyledComponent;
-  big: <T = any>(style: Style<T>) => StyledComponent;
-  blockquote: <T = any>(style: Style<T>) => StyledComponent;
-  body: <T = any>(style: Style<T>) => StyledComponent;
-  br: <T = any>(style: Style<T>) => StyledComponent;
-  button: <T = any>(style: Style<T>) => StyledComponent;
-  canvas: <T = any>(style: Style<T>) => StyledComponent;
-  caption: <T = any>(style: Style<T>) => StyledComponent;
-  cite: <T = any>(style: Style<T>) => StyledComponent;
-  code: <T = any>(style: Style<T>) => StyledComponent;
-  col: <T = any>(style: Style<T>) => StyledComponent;
-  colgroup: <T = any>(style: Style<T>) => StyledComponent;
-  data: <T = any>(style: Style<T>) => StyledComponent;
-  datalist: <T = any>(style: Style<T>) => StyledComponent;
-  dd: <T = any>(style: Style<T>) => StyledComponent;
-  del: <T = any>(style: Style<T>) => StyledComponent;
-  details: <T = any>(style: Style<T>) => StyledComponent;
-  dfn: <T = any>(style: Style<T>) => StyledComponent;
-  dialog: <T = any>(style: Style<T>) => StyledComponent;
-  div: <T = any>(style: Style<T>) => StyledComponent;
-  dl: <T = any>(style: Style<T>) => StyledComponent;
-  dt: <T = any>(style: Style<T>) => StyledComponent;
-  em: <T = any>(style: Style<T>) => StyledComponent;
-  embed: <T = any>(style: Style<T>) => StyledComponent;
-  fieldset: <T = any>(style: Style<T>) => StyledComponent;
-  figcaption: <T = any>(style: Style<T>) => StyledComponent;
-  figure: <T = any>(style: Style<T>) => StyledComponent;
-  footer: <T = any>(style: Style<T>) => StyledComponent;
-  form: <T = any>(style: Style<T>) => StyledComponent;
-  h1: <T = any>(style: Style<T>) => StyledComponent;
-  h2: <T = any>(style: Style<T>) => StyledComponent;
-  h3: <T = any>(style: Style<T>) => StyledComponent;
-  h4: <T = any>(style: Style<T>) => StyledComponent;
-  h5: <T = any>(style: Style<T>) => StyledComponent;
-  h6: <T = any>(style: Style<T>) => StyledComponent;
-  head: <T = any>(style: Style<T>) => StyledComponent;
-  header: <T = any>(style: Style<T>) => StyledComponent;
-  hgroup: <T = any>(style: Style<T>) => StyledComponent;
-  hr: <T = any>(style: Style<T>) => StyledComponent;
-  html: <T = any>(style: Style<T>) => StyledComponent;
-  i: <T = any>(style: Style<T>) => StyledComponent;
-  iframe: <T = any>(style: Style<T>) => StyledComponent;
-  img: <T = any>(style: Style<T>) => StyledComponent;
-  input: <T = any>(style: Style<T>) => StyledComponent;
-  ins: <T = any>(style: Style<T>) => StyledComponent;
-  kbd: <T = any>(style: Style<T>) => StyledComponent;
-  keygen: <T = any>(style: Style<T>) => StyledComponent;
-  label: <T = any>(style: Style<T>) => StyledComponent;
-  legend: <T = any>(style: Style<T>) => StyledComponent;
-  li: <T = any>(style: Style<T>) => StyledComponent;
-  link: <T = any>(style: Style<T>) => StyledComponent;
-  main: <T = any>(style: Style<T>) => StyledComponent;
-  map: <T = any>(style: Style<T>) => StyledComponent;
-  mark: <T = any>(style: Style<T>) => StyledComponent;
-  marquee: <T = any>(style: Style<T>) => StyledComponent;
-  menu: <T = any>(style: Style<T>) => StyledComponent;
-  menuitem: <T = any>(style: Style<T>) => StyledComponent;
-  meta: <T = any>(style: Style<T>) => StyledComponent;
-  meter: <T = any>(style: Style<T>) => StyledComponent;
-  nav: <T = any>(style: Style<T>) => StyledComponent;
-  noscript: <T = any>(style: Style<T>) => StyledComponent;
-  object: <T = any>(style: Style<T>) => StyledComponent;
-  ol: <T = any>(style: Style<T>) => StyledComponent;
-  optgroup: <T = any>(style: Style<T>) => StyledComponent;
-  option: <T = any>(style: Style<T>) => StyledComponent;
-  output: <T = any>(style: Style<T>) => StyledComponent;
-  p: <T = any>(style: Style<T>) => StyledComponent;
-  param: <T = any>(style: Style<T>) => StyledComponent;
-  picture: <T = any>(style: Style<T>) => StyledComponent;
-  pre: <T = any>(style: Style<T>) => StyledComponent;
-  progress: <T = any>(style: Style<T>) => StyledComponent;
-  q: <T = any>(style: Style<T>) => StyledComponent;
-  rp: <T = any>(style: Style<T>) => StyledComponent;
-  rt: <T = any>(style: Style<T>) => StyledComponent;
-  ruby: <T = any>(style: Style<T>) => StyledComponent;
-  s: <T = any>(style: Style<T>) => StyledComponent;
-  samp: <T = any>(style: Style<T>) => StyledComponent;
-  script: <T = any>(style: Style<T>) => StyledComponent;
-  section: <T = any>(style: Style<T>) => StyledComponent;
-  select: <T = any>(style: Style<T>) => StyledComponent;
-  small: <T = any>(style: Style<T>) => StyledComponent;
-  source: <T = any>(style: Style<T>) => StyledComponent;
-  span: <T = any>(style: Style<T>) => StyledComponent;
-  strong: <T = any>(style: Style<T>) => StyledComponent;
-  style: <T = any>(style: Style<T>) => StyledComponent;
-  sub: <T = any>(style: Style<T>) => StyledComponent;
-  summary: <T = any>(style: Style<T>) => StyledComponent;
-  sup: <T = any>(style: Style<T>) => StyledComponent;
-  table: <T = any>(style: Style<T>) => StyledComponent;
-  tbody: <T = any>(style: Style<T>) => StyledComponent;
-  td: <T = any>(style: Style<T>) => StyledComponent;
-  textarea: <T = any>(style: Style<T>) => StyledComponent;
-  tfoot: <T = any>(style: Style<T>) => StyledComponent;
-  th: <T = any>(style: Style<T>) => StyledComponent;
-  thead: <T = any>(style: Style<T>) => StyledComponent;
-  time: <T = any>(style: Style<T>) => StyledComponent;
-  title: <T = any>(style: Style<T>) => StyledComponent;
-  tr: <T = any>(style: Style<T>) => StyledComponent;
-  track: <T = any>(style: Style<T>) => StyledComponent;
-  u: <T = any>(style: Style<T>) => StyledComponent;
-  ul: <T = any>(style: Style<T>) => StyledComponent;
-  var: <T = any>(style: Style<T>) => StyledComponent;
-  video: <T = any>(style: Style<T>) => StyledComponent;
-  wrg: <T = any>(style: Style<T>) => StyledComponent;
-  circle: <T = any>(style: Style<T>) => StyledComponent;
-  clipPath: <T = any>(style: Style<T>) => StyledComponent;
-  defs: <T = any>(style: Style<T>) => StyledComponent;
-  ellipse: <T = any>(style: Style<T>) => StyledComponent;
-  foreignObject: <T = any>(style: Style<T>) => StyledComponent;
-  g: <T = any>(style: Style<T>) => StyledComponent;
-  image: <T = any>(style: Style<T>) => StyledComponent;
-  line: <T = any>(style: Style<T>) => StyledComponent;
-  linearGradient: <T = any>(style: Style<T>) => StyledComponent;
-  mask: <T = any>(style: Style<T>) => StyledComponent;
-  path: <T = any>(style: Style<T>) => StyledComponent;
-  pattern: <T = any>(style: Style<T>) => StyledComponent;
-  polygon: <T = any>(style: Style<T>) => StyledComponent;
-  polyline: <T = any>(style: Style<T>) => StyledComponent;
-  radialGradient: <T = any>(style: Style<T>) => StyledComponent;
-  rect: <T = any>(style: Style<T>) => StyledComponent;
-  stop: <T = any>(style: Style<T>) => StyledComponent;
-  svg: <T = any>(style: Style<T>) => StyledComponent;
-  text: <T = any>(style: Style<T>) => StyledComponent;
-  tspan: <T = any>(style: Style<T>) => StyledComponent;
+  a: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  abbr: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  address: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  area: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  article: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  aside: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  audio: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  b: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  base: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  bdi: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  bdo: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  big: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  blockquote: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  body: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  br: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  button: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  canvas: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  caption: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  cite: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  code: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  col: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  colgroup: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  data: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  datalist: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  dd: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  del: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  details: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  dfn: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  dialog: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  div: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  dl: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  dt: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  em: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  embed: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  fieldset: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  figcaption: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  figure: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  footer: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  form: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  h1: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  h2: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  h3: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  h4: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  h5: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  h6: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  head: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  header: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  hgroup: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  hr: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  html: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  i: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  iframe: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  img: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  input: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  ins: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  kbd: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  keygen: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  label: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  legend: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  li: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  link: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  main: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  map: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  mark: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  marquee: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  menu: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  menuitem: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  meta: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  meter: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  nav: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  noscript: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  object: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  ol: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  optgroup: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  option: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  output: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  p: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  param: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  picture: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  pre: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  progress: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  q: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  rp: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  rt: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  ruby: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  s: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  samp: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  script: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  section: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  select: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  small: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  source: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  span: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  strong: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  style: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  sub: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  summary: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  sup: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  table: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  tbody: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  td: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  textarea: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  tfoot: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  th: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  thead: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  time: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  title: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  tr: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  track: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  u: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  ul: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  var: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  video: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  wrg: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  circle: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  clipPath: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  defs: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  ellipse: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  foreignObject: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  g: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  image: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  line: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  linearGradient: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  mask: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  path: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  pattern: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  polygon: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  polyline: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  radialGradient: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  rect: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  stop: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  svg: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  text: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
+  tspan: <T = any>(
+    ...style: TemplateStringsArray | Style<T>[]
+  ) => StyledComponent;
 };
 
 export type Style<T = any> =
