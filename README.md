@@ -469,9 +469,9 @@ export const themePallete: ThemePallete = {
 import styled, { type Props, useTheme, alpha } from 'styled-svelte';
 import type { ThemePallate } from './theme/themePallete';
 
-// Access theme from Props and assign Types on styled
+// Object Styles, access theme from Props and assign Types on styled
 const Button = styled<ThemePallete>('button', (props) => ({
-  color: props.theme[props.theme.mode].colors.primary, // props.theme work with ThemeProvider only
+  color: props.theme[props.theme.mode].colors.primary,
   border: 'none',
   outline: 'none',
   padding: '10px 20px',
@@ -487,10 +487,18 @@ const Button = styled('button', (props: Props<ThemePallete>) => ({
   //
 }));
 
-// OR Access theme from Props and assign Types on props and destructuring
-const Button = styled('button', ({ theme }: Props<ThemePallete>) => ({
-  //
-}));
+// Css Styles, access theme from Props and assign Types on props
+const Button = styled.button`
+  color: ${(props:Props<ThemePallete>) => props.theme[props.theme.mode].colors.primary};
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  backgroundColor: ${(props:Props<ThemePallete>) => props.theme[props.theme.mode].backgroundColors.light};
+  &:hover {
+    backgroundColor: ${(props:Props<ThemePallete>) => props.theme[props.theme.mode].backgroundColors.lighter};
+  }
+}`;
 
 // OR useTheme() API
 const theme = useTheme();
@@ -508,6 +516,8 @@ const Button = styled('button', {
 });
 </script>
 ```
+
+Remark: `props.theme` work with `ThemeProvider` only
 
 #### Toggle Dark Mode
 
