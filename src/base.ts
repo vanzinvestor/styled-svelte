@@ -8,9 +8,7 @@ import type { StyledComponent, HTMLTag, Style } from './types';
 const ILLEGAL_ESCAPE_SEQUENCE_ERROR = `You have illegal escape sequence in your template literal, so for example "content: '\\00d7';" should become "content: '\\\\00d7';".`;
 
 export function htmlTag(tag: HTMLTag) {
-  return function <T = any>(...style: TemplateStringsArray | Style<T>[]) {
-    const args = style as TemplateStringsArray;
-
+  return function <T = any>(...args: any) {
     let newStyle: any;
 
     if (args && args.length > 1) {

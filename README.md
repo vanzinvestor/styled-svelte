@@ -7,7 +7,7 @@
 - [Quick Start](#quick-start)
 - [API](#api)
   - [Styles with html tag — `styled`](#styled)
-  - [styled with component tag — `styled`](#styled-with-component-tag)
+  - [Styled with component tag — `styled`](#styled-with-component-tag)
   - [Styled with props — `styled` `props`](#styles-with-props)
   - [Styles with props in component — `build in`](#styles-with-props-in-component)
   - [Styles with styledSystem — `styledSystem` `build in`](#styles-with-styledsystem)
@@ -30,19 +30,21 @@ npm install --save styled-svelte
 ```ts
 import styled from 'styled-svelte';
 
-const Div = styled('div', { padding: '10px 20px' });
+const Div = styled.div`
+  padding: 10px 20px;
+`;
 
-const Button = styled('button', {
-  color: '#333',
-  border: 'none',
-  outline: 'none',
-  padding: '10px 20px',
-  cursor: 'pointer',
-  backgroundColor: '#e8e8e8',
-  '&:hover': {
-    backgroundColor: '#d8d8d8',
-  },
-});
+const Button = styled.button`
+  color: #333;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  backgroundcolor: #e8e8e8;
+  &:hover {
+    backgroundcolor: #d8d8d8;
+  }
+`;
 ```
 
 Use them like any other Svelte component – except they're styled!
@@ -160,9 +162,37 @@ const Button = styled('button', (props: AnyProperties) => ({
   },
 }));
 
+// OR
+const Button = styled.button((props: AnyProperties) => ({
+  color: props.color,
+  border: 'none',
+  outline: 'none',
+  padding: '10px 20px',
+  cursor: 'pointer',
+  backgroundColor: '#e8e8e8',
+  '&:hover': {
+    backgroundColor: '#d8d8d8',
+  },
+}));
+
 // Object Styles function return string (look like css)
 const Button = styled(
   'button',
+  (props: AnyProperties) => `
+  color: ${props.color};
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #e8e8e8;
+  &:hover {
+    background-color: #d8d8d8;
+  }
+`
+);
+
+// OR
+const Button = styled.button(
   (props: AnyProperties) => `
   color: ${props.color};
   border: none;
@@ -274,7 +304,7 @@ Output in HTML
 
 `sx` props `sx={{color:'#333',padding:'16px'}}` eq. `color: #333; padding: '16px';`
 
-`sx` props `sx={(props)=>({color:props.theme[props.theme.mode].colors.primary,padding:'16px'})}` eq. `color: #1976d2; padding: '16px';`
+`sx` props `sx={(props)=>({color:props.theme[props.theme.mode].color.primary,padding:'16px'})}` eq. `color: #1976d2; padding: '16px';`
 
 Remark: `props.theme` work with [ThemeProvider](#theme) only
 
@@ -305,7 +335,7 @@ const Button = styled('button', {
 '&:hover':{backgroundColor:'#555'}}}>Click Me</Button>
 
 <!-- OR Sx with Props -->
-<Button p={[2,4]} m={0.5} sx={(props)=>({color:props.theme[props.theme.mode].colors.primary,backgroundColor:'#333',
+<Button p={[2,4]} m={0.5} sx={(props)=>({color:props.theme[props.theme.mode].color.primary,backgroundColor:'#333',
 '&:hover':{backgroundColor:'#555'}})}>Click Me</Button>
 ```
 
@@ -471,14 +501,14 @@ import type { ThemePallate } from './theme/themePallete';
 
 // Object Styles, access theme from Props and assign Types on styled
 const Button = styled<ThemePallete>('button', (props) => ({
-  color: props.theme[props.theme.mode].colors.primary,
+  color: props.theme[props.theme.mode].color.primary,
   border: 'none',
   outline: 'none',
   padding: '10px 20px',
   cursor: 'pointer',
-  backgroundColor: props.theme[props.theme.mode].backgroundColors.light,
+  backgroundColor: alpha(props.theme[props.theme.mode].color.primary,  0.6),
   '&:hover': {
-    backgroundColor: props.theme[props.theme.mode].backgroundColors.lighter,
+    backgroundColor: alpha(props.theme[props.theme.mode].color.primary, 0.5),
   },
 }));
 
@@ -489,14 +519,14 @@ const Button = styled('button', (props: Props<ThemePallete>) => ({
 
 // Css Styles, access theme from Props and assign Types on props
 const Button = styled.button`
-  color: ${(props:Props<ThemePallete>) => props.theme[props.theme.mode].colors.primary};
+  color: ${(props:Props<ThemePallete>) => props.theme[props.theme.mode].color.primary};
   border: none;
   outline: none;
   padding: 10px 20px;
   cursor: pointer;
-  backgroundColor: ${(props:Props<ThemePallete>) => props.theme[props.theme.mode].backgroundColors.light};
+  backgroundColor: ${(props/*:Props<ThemePallete>*/) => alpha(props.theme[props.theme.mode].color.primary,  0.6)};
   &:hover {
-    backgroundColor: ${(props:Props<ThemePallete>) => props.theme[props.theme.mode].backgroundColors.lighter};
+    backgroundColor: ${(props/*:Props<ThemePallete>*/) => alpha(props.theme[props.theme.mode].color.primary,  0.5)};
   }
 }`;
 

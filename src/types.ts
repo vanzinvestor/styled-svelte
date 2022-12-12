@@ -4,351 +4,541 @@ import type { CSSInterpolation } from '@emotion/css';
 
 export type Styled = {
   <T = any>(Tag: HTMLTag | StyledComponent, style: Style<T>): StyledComponent;
-  a: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  a: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   abbr: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   address: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   area: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   article: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   aside: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   audio: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  b: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  b: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   base: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   bdi: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   bdo: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   big: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   blockquote: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   body: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  br: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  br: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   button: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   canvas: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   caption: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   cite: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   code: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   col: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   colgroup: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   data: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   datalist: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  dd: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  dd: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   del: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   details: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   dfn: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   dialog: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   div: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  dl: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  dt: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  em: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  dl: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  dt: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  em: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   embed: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   fieldset: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   figcaption: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   figure: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   footer: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   form: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  h1: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  h2: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  h3: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  h4: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  h5: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  h6: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  h1: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  h2: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  h3: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  h4: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  h5: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  h6: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   head: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   header: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   hgroup: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  hr: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  hr: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   html: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  i: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  i: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   iframe: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   img: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   input: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   ins: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   kbd: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   keygen: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   label: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   legend: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  li: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  li: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   link: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   main: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   map: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   mark: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   marquee: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   menu: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   menuitem: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   meta: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   meter: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   nav: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   noscript: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   object: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  ol: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  ol: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   optgroup: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   option: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   output: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  p: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  p: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   param: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   picture: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   pre: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   progress: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  q: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  rp: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  rt: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  q: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  rp: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  rt: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   ruby: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  s: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  s: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   samp: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   script: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   section: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   select: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   small: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   source: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   span: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   strong: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   style: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   sub: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   summary: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   sup: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   table: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   tbody: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  td: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  td: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   textarea: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   tfoot: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  th: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  th: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   thead: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   time: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   title: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  tr: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  tr: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   track: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  u: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
-  ul: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  u: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
+  ul: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   var: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   video: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   wrg: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   circle: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   clipPath: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   defs: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   ellipse: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   foreignObject: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
-  g: <T = any>(...style: TemplateStringsArray | Style<T>[]) => StyledComponent;
+  g: <T = any>(
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
+  ) => StyledComponent;
   image: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   line: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   linearGradient: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   mask: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   path: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   pattern: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   polygon: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   polyline: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   radialGradient: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   rect: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   stop: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   svg: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   text: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
   tspan: <T = any>(
-    ...style: TemplateStringsArray | Style<T>[]
+    template: Style<T>,
+    ...args: CSSInterpolation[] | ((props: Props<T>) => CSSInterpolation)[]
   ) => StyledComponent;
 };
 
