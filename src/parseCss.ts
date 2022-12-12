@@ -9,6 +9,8 @@ export function parseCssFromTemplateStrings<T = any>(args: any) {
     for (let i = 1; i < args.length; i++) {
       if (typeof args[i] === 'function') {
         result.push(args[0][i - 1], (args[i] as (props: T) => any)(props));
+      } else if (typeof args[i] === 'string') {
+        result.push(args[0][i - 1], args[i]);
       } else {
         result.push(args[0][i]);
       }
