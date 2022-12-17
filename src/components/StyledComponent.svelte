@@ -1,158 +1,145 @@
-<script type="ts">
-  import type { CSSInterpolation } from '@emotion/css';
+<script>
   import { getContext } from 'svelte';
   import { useForwardRef } from '../hooks/useForwardRef';
-  import type { ArraySpacing, HTMLTag, ThemeContext } from '../types';
   import { css, cx } from '../css';
   import { parseSpacing } from '../parseSpacing';
   import { parseProperties } from '../parseProperty';
   import { useTheme } from '../hooks';
   import { styledThemeKey } from '../styledThemeKey';
 
-  export let tag: HTMLTag = 'div';
-  export let className: string | undefined = undefined;
-  export let m: number | ArraySpacing<number> | undefined = undefined;
-  export let mt: number | undefined = undefined;
-  export let mr: number | undefined = undefined;
-  export let mb: number | undefined = undefined;
-  export let ml: number | undefined = undefined;
-  export let mx: number | undefined = undefined;
-  export let my: number | undefined = undefined;
-  export let p: number | ArraySpacing<number> | undefined = undefined;
-  export let pt: number | undefined = undefined;
-  export let pr: number | undefined = undefined;
-  export let pb: number | undefined = undefined;
-  export let pl: number | undefined = undefined;
-  export let px: number | undefined = undefined;
-  export let py: number | undefined = undefined;
-  export let alignItems: string | undefined = undefined;
-  export let alignSelf: string | undefined = undefined;
-  export let background: string | undefined = undefined;
-  export let backgroundColor: string | undefined = undefined;
-  export let backgroundImage: string | undefined = undefined;
-  export let backgroundPosition: string | undefined = undefined;
-  export let backgroundRepeat: string | undefined = undefined;
-  export let border: string | undefined = undefined;
-  export let borderColor: string | undefined = undefined;
-  export let borderWidth: string | undefined = undefined;
-  export let borderStyle: string | undefined = undefined;
-  export let borderRadius: string | undefined = undefined;
-  export let bottom: string | undefined = undefined;
-  export let boxShadow: string | undefined = undefined;
-  export let boxSizing: string | undefined = undefined;
-  export let color: string | undefined = undefined;
-  export let columns: string | undefined = undefined;
-  export let columnGap: string | undefined = undefined;
-  export let columnSpan: string | undefined = undefined;
-  export let cursor: string | undefined = undefined;
-  export let direction: string | undefined = undefined;
-  export let display: string | undefined = undefined;
-  export let flexBasis: string | undefined = undefined;
-  export let flexDirection: string | undefined = undefined;
-  export let flexGrow: string | undefined = undefined;
-  export let flexShrink: string | undefined = undefined;
-  export let flexWrap: string | undefined = undefined;
-  export let float: string | undefined = undefined;
-  export let font: string | undefined = undefined;
-  export let fontFamily: string | undefined = undefined;
-  export let fontSize: string | undefined = undefined;
-  export let fontStyle: string | undefined = undefined;
-  export let fontWeight: string | undefined = undefined;
-  export let gap: string | undefined = undefined;
-  export let grid: string | undefined = undefined;
-  export let gridArea: string | undefined = undefined;
-  export let gridAutoColumns: string | undefined = undefined;
-  export let gridAutoFlow: string | undefined = undefined;
-  export let gridAutoRows: string | undefined = undefined;
-  export let gridGap: string | undefined = undefined;
-  export let gridRow: string | undefined = undefined;
-  export let gridTemplateAreas: string | undefined = undefined;
-  export let gridTemplateColumns: string | undefined = undefined;
-  export let gridTemplateRows: string | undefined = undefined;
-  export let height: string | undefined = undefined;
-  export let justifyContent: string | undefined = undefined;
-  export let justifyItems: string | undefined = undefined;
-  export let justifySelf: string | undefined = undefined;
-  export let left: string | undefined = undefined;
-  export let letterSpacing: string | undefined = undefined;
-  export let listStyle: string | undefined = undefined;
-  export let lineHeight: string | undefined = undefined;
-  export let margin: string | undefined = undefined;
-  export let marginTop: string | undefined = undefined;
-  export let marginRight: string | undefined = undefined;
-  export let marginBottom: string | undefined = undefined;
-  export let marginLeft: string | undefined = undefined;
-  export let maxHeight: string | undefined = undefined;
-  export let maxWidth: string | undefined = undefined;
-  export let minHeight: string | undefined = undefined;
-  export let minWidth: string | undefined = undefined;
-  export let objectFit: string | undefined = undefined;
-  export let objectPosition: string | undefined = undefined;
-  export let opacity: string | undefined = undefined;
-  export let padding: string | undefined = undefined;
-  export let paddingTop: string | undefined = undefined;
-  export let paddingRight: string | undefined = undefined;
-  export let paddingBottom: string | undefined = undefined;
-  export let paddingLeft: string | undefined = undefined;
-  export let outline: string | undefined = undefined;
-  export let overflow: string | undefined = undefined;
-  export let overflowX: string | undefined = undefined;
-  export let overflowY: string | undefined = undefined;
-  export let position: string | undefined = undefined;
-  export let pointerEvents: string | undefined = undefined;
-  export let right: string | undefined = undefined;
-  export let rotate: string | undefined = undefined;
-  export let rowGap: string | undefined = undefined;
-  export let scale: string | undefined = undefined;
-  export let scrollBehavior: string | undefined = undefined;
-  export let textAlign: string | undefined = undefined;
-  export let textDecoration: string | undefined = undefined;
-  export let textIndent: string | undefined = undefined;
-  export let textJustify: string | undefined = undefined;
-  export let textOverflow: string | undefined = undefined;
-  export let textShadow: string | undefined = undefined;
-  export let textTransform: string | undefined = undefined;
-  export let top: string | undefined = undefined;
-  export let transform: string | undefined = undefined;
-  export let transition: string | undefined = undefined;
-  export let translate: string | undefined = undefined;
-  export let verticalAlign: string | undefined = undefined;
-  export let visibility: string | undefined = undefined;
-  export let whiteSpace: string | undefined = undefined;
-  export let width: string | undefined = undefined;
-  export let wordBreak: string | undefined = undefined;
-  export let wordSpacing: string | undefined = undefined;
-  export let zIndex: string | undefined = undefined;
-  export let suffix: string | undefined = undefined;
-  export let styledSystem: boolean = false;
-  export let sx:
-    | ((props: any) => CSSInterpolation)
-    | CSSInterpolation
-    | undefined = undefined;
+  export let tag = 'div';
+  export let className = undefined;
+  export let m = undefined;
+  export let mt = undefined;
+  export let mr = undefined;
+  export let mb = undefined;
+  export let ml = undefined;
+  export let mx = undefined;
+  export let my = undefined;
+  export let p = undefined;
+  export let pt = undefined;
+  export let pr = undefined;
+  export let pb = undefined;
+  export let pl = undefined;
+  export let px = undefined;
+  export let py = undefined;
+  export let alignItems = undefined;
+  export let alignSelf = undefined;
+  export let background = undefined;
+  export let backgroundColor = undefined;
+  export let backgroundImage = undefined;
+  export let backgroundPosition = undefined;
+  export let backgroundRepeat = undefined;
+  export let border = undefined;
+  export let borderColor = undefined;
+  export let borderWidth = undefined;
+  export let borderStyle = undefined;
+  export let borderRadius = undefined;
+  export let bottom = undefined;
+  export let boxShadow = undefined;
+  export let boxSizing = undefined;
+  export let color = undefined;
+  export let columns = undefined;
+  export let columnGap = undefined;
+  export let columnSpan = undefined;
+  export let cursor = undefined;
+  export let direction = undefined;
+  export let display = undefined;
+  export let flexBasis = undefined;
+  export let flexDirection = undefined;
+  export let flexGrow = undefined;
+  export let flexShrink = undefined;
+  export let flexWrap = undefined;
+  export let float = undefined;
+  export let font = undefined;
+  export let fontFamily = undefined;
+  export let fontSize = undefined;
+  export let fontStyle = undefined;
+  export let fontWeight = undefined;
+  export let gap = undefined;
+  export let grid = undefined;
+  export let gridArea = undefined;
+  export let gridAutoColumns = undefined;
+  export let gridAutoFlow = undefined;
+  export let gridAutoRows = undefined;
+  export let gridGap = undefined;
+  export let gridRow = undefined;
+  export let gridTemplateAreas = undefined;
+  export let gridTemplateColumns = undefined;
+  export let gridTemplateRows = undefined;
+  export let height = undefined;
+  export let justifyContent = undefined;
+  export let justifyItems = undefined;
+  export let justifySelf = undefined;
+  export let left = undefined;
+  export let letterSpacing = undefined;
+  export let listStyle = undefined;
+  export let lineHeight = undefined;
+  export let margin = undefined;
+  export let marginTop = undefined;
+  export let marginRight = undefined;
+  export let marginBottom = undefined;
+  export let marginLeft = undefined;
+  export let maxHeight = undefined;
+  export let maxWidth = undefined;
+  export let minHeight = undefined;
+  export let minWidth = undefined;
+  export let objectFit = undefined;
+  export let objectPosition = undefined;
+  export let opacity = undefined;
+  export let padding = undefined;
+  export let paddingTop = undefined;
+  export let paddingRight = undefined;
+  export let paddingBottom = undefined;
+  export let paddingLeft = undefined;
+  export let outline = undefined;
+  export let overflow = undefined;
+  export let overflowX = undefined;
+  export let overflowY = undefined;
+  export let position = undefined;
+  export let pointerEvents = undefined;
+  export let right = undefined;
+  export let rotate = undefined;
+  export let rowGap = undefined;
+  export let scale = undefined;
+  export let scrollBehavior = undefined;
+  export let textAlign = undefined;
+  export let textDecoration = undefined;
+  export let textIndent = undefined;
+  export let textJustify = undefined;
+  export let textOverflow = undefined;
+  export let textShadow = undefined;
+  export let textTransform = undefined;
+  export let top = undefined;
+  export let transform = undefined;
+  export let transition = undefined;
+  export let translate = undefined;
+  export let verticalAlign = undefined;
+  export let visibility = undefined;
+  export let whiteSpace = undefined;
+  export let width = undefined;
+  export let wordBreak = undefined;
+  export let wordSpacing = undefined;
+  export let zIndex = undefined;
+  export let suffix = undefined;
+  export let styledSystem = false;
+  export let sx = undefined;
   /**
    * @remark
    * ox - Internal use only
    */
-  export let ox:
-    | ((props: any) => CSSInterpolation)
-    | CSSInterpolation
-    | CSSInterpolation[]
-    | undefined = undefined;
+  export let ox = undefined;
   /**
    * @remark
    * lx - Internal use only
    */
-  export let lx:
-    | ((props: any) => CSSInterpolation)
-    | CSSInterpolation
-    | CSSInterpolation[]
-    | undefined = undefined;
+  export let lx = undefined;
 
   let forwardRef = useForwardRef();
 
-  let theme: any;
+  let theme;
 
-  let ctx = getContext<ThemeContext<any>>(styledThemeKey);
+  let ctx = getContext(styledThemeKey);
 
   if (!ctx) {
     theme = {};
