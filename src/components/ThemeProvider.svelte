@@ -6,9 +6,11 @@
 
   export let theme: AnyProperties = {};
 
-  $: themStore = writable(theme);
+  const themeStore = writable(theme);
 
-  $: setContext<ThemeContext>(styledThemeKey, { theme: themStore });
+  $: themeStore.set(theme);
+
+  $: setContext<ThemeContext>(styledThemeKey, { theme: themeStore });
 </script>
 
 <slot />
