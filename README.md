@@ -12,6 +12,7 @@
   - [Styles with props in component — `build in`](#styles-with-props-in-component)
   - [Styles with styledSystem — `styledSystem` `build in`](#styles-with-styledsystem)
   - [Forwarding Refs Events — `build in`](#forwarding-refs-events)
+  - [Action Events — `build in` `action props`](#action-events)
   - [Theme — `ThemeProvider` `props.theme` `useTheme`](#theme)
   - [Global Styles — `injectGlobal`](#global-styles)
   - [Color Utility — `alpha` `darker` `lighten` and more](#color-utility)
@@ -390,6 +391,14 @@ The other props you can used theme. please see [Other props in Component](#other
 ### Forwarding Refs Events
 
 Build in `forwordRefEvents` for every component created by `styled` api
+
+### Action Events
+
+Build in `action` events props for every component created by `styled` api
+
+```svelte
+<MyComponent action={myAction}/>
+```
 
 ### Theme
 

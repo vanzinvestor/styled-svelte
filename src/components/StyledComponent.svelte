@@ -7,6 +7,10 @@
   import { useTheme } from '../hooks';
   import { styledThemeKey } from '../styledThemeKey';
 
+  export let action = (node, params) => {
+    return { destroy() {} };
+  };
+
   export let tag = 'div';
   export let className = undefined;
   export let m = undefined;
@@ -283,9 +287,21 @@
 </script>
 
 {#if tag === 'area' || tag === 'base' || tag === 'br' || tag === 'col' || tag === 'embed' || tag === 'hr' || tag === 'img' || tag === 'input' || tag === 'link' || tag === 'meta' || tag === 'param' || tag === 'source' || tag === 'track' || tag === 'circle' || tag === 'ellipse' || tag === 'image' || tag === 'line' || tag === 'path' || tag === 'polygon' || tag === 'polyline' || tag === 'rect' || tag === 'stop'}
-  <svelte:element this={tag} class={style} use:forwardRef {...$$restProps} />
+  <svelte:element
+    this={tag}
+    class={style}
+    use:action
+    use:forwardRef
+    {...$$restProps}
+  />
 {:else}
-  <svelte:element this={tag} class={style} use:forwardRef {...$$restProps}>
+  <svelte:element
+    this={tag}
+    use:action
+    class={style}
+    use:forwardRef
+    {...$$restProps}
+  >
     <slot />
   </svelte:element>
 {/if}
